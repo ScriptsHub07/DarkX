@@ -11,7 +11,7 @@ end
 
 if keychecked == true then
     if hwidplr == hwid then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/pedrinn007x5/Lures/refs/heads/main/Script"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/pedrinn007x5/Lures/refs/heads/main/README.md"))()
     else
         print("Incorrect hwid")
     end
