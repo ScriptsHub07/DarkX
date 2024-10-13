@@ -1,30 +1,20 @@
-_G.Key = "1234"
+_G.Key = "Lures"
 
 local keychecked = false
 local hwid = nil
-local hwidplr = game:GetService("RbxAnalyticsService"):GetClientId()  -- Client ID, não HWID
+local hwidplr = game:GetService("RbxAnalyticsService"):GetClientId()
 
-if _G.Key == "1234" then
-    hwid = "5ebabbf3-cd18-44da-903d-b8212ba15737"  -- HWID fixo (não real)
+if _G.Key == "Lures" then
+    hwid = "f44c5c9e-2722-4011-a0ca-c3dfd6c62505"
     keychecked = true
 end
 
-if keychecked then
+if keychecked == true then
     if hwidplr == hwid then
-        -- Se a verificação for bem-sucedida (lembrando que hwidplr provavelmente não vai ser igual ao hwid)
-        print("HWID check passed!")
-        -- Alternativa segura para carregar o script (se necessário)
-        local success, result = pcall(function()
-            return loadstring(game:HttpGet("https://raw.githubusercontent.com/pedrinn007x5/Lures/refs/heads/main/README.md"))()
-        end)
-        if success then
-            print("Script loaded successfully!")
-        else
-            print("Failed to load script:", result)
-        end
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/pedrinn007x5/Lures/refs/heads/main/Script"))()
     else
         print("Incorrect hwid")
     end
-else
-    print("Incorrect key")
+    else 
+        print("Incorrect Key")
 end
