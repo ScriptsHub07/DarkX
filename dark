@@ -1,20 +1,42 @@
-_G.Key = "Lures"
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Lures Script | Key System", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
-local keychecked = false
-local hwid = nil
-local hwidplr = game:GetService("RbxAnalyticsService"):GetClientId()
+local Tab = Window:MakeTab({
+	Name = "Key System",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
-if _G.Key == "Lures" then
-    hwid = "5ebabbf3-cd18-44da-903d-b8212ba15737"
-    keychecked = true
-end
+_G.Key = "nothing yet"
 
-if keychecked == true then
-    if hwidplr == hwid then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/pedrinn007x5/Lures/refs/heads/main/README.md"))()
-    else
-        print("Incorrect hwid")
-    end
-    else 
-        print("Incorrect Key")
-end
+Tab:AddButton({
+	Name = "Copy Key Link",
+	Callback = function()
+      		setclipboard("https://workink.net/1WIV/m286v4xi")
+  	end    
+})
+
+_G.CheckKey = false
+
+Tab:AddLabel("")
+Tab:AddButton({
+	Name = "Check Key",
+	Callback = function()
+      		if _G.CheckKey == true then
+                return
+            end
+            local key = game:HttpGet("https://redirect-api.work.ink/tokenValid/" .. _G.Key .. "?linkid=64581")
+            if key == 'False' then
+                OrionLib:MakeNotification({
+                    Name = "Key System",
+                    Content = "Incorrect Key",
+                    Image = "",
+                    Time = 3
+                })
+                return
+            end
+
+            _G.CheckKey = true
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/pedrinn007x5/Lures/refs/heads/main/Script"))()
+  	end    
+})
