@@ -1,42 +1,36 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Lures Script | Key System", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local window = lib.CreateLib("Key System | Lures Script", "DarkTheme")
 
-local Tab = Window:MakeTab({
-	Name = "Key System",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
+local Main = window:NewTab("Check Key")
+local Section = Main:NewSection("Key System")
 
 _G.Key = "nothing yet"
 
-Tab:AddButton({
-	Name = "Copy Key Link",
-	Callback = function()
-      		setclipboard("https://workink.net/1WIV/m286v4xi")
-  	end    
-})
+Section:NewButton("Copy Key Link", "Paste link in browser", function()
+    setclipboard("https://workink.net/1WIV/m286v4xi") -- Add your key link
+end)
+
+local KeyLabel = Section:NewLabel("Key 1 | ".. _G.Key)
+local KeyInput = Section:NewTextBox("Key", "Key",
+    function(txt)
+        KeyLabel:UpdateLabel("Key > " .. txt)
+        _G.Key = txt
+        CheckKey()
+    end)
 
 _G.CheckKey = false
+local OutputLabel = Section:NewLabel("")  
+function CheckKey()
+    if _G.CheckedKey == true then
+        return
+    end
+    local key = game:HttpGet("https://redirect-api.work.ink/tokenValid/" .. _G.Key .. "?linkId=64581")
+    if key == 'False' then
+        OutputLabel:UpdateLabel("Key incorrect")
+        return
+    end
 
-Tab:AddLabel("")
-Tab:AddButton({
-	Name = "Check Key",
-	Callback = function()
-      		if _G.CheckKey == true then
-                return
-            end
-            local key = game:HttpGet("https://redirect-api.work.ink/tokenValid/" .. _G.Key .. "?linkid=64581")
-            if key == 'False' then
-                OrionLib:MakeNotification({
-                    Name = "Key System",
-                    Content = "Incorrect Key",
-                    Image = "",
-                    Time = 3
-                })
-                return
-            end
-
-            _G.CheckKey = true
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/pedrinn007x5/Lures/refs/heads/main/Script"))()
-  	end    
-})
+    _G.CheckedKey = true
+        local script = loadstring(game:HttpGet(('https://raw.githubusercontent.com/InsurgenceHub/ScriptHubTutorial.github.io/main/12996550309.lua')))()
+        
+    end
