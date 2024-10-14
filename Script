@@ -2514,21 +2514,14 @@ local Window = OrionLib:MakeWindow({Name = "Lures Script", HidePremium = false, 
 
 OrionLib:MakeNotification({
 	Name = "Lures Script",
-	Content = "Choose Teams Bro?",
-	Image = "",
-	Time = 7
-})
-
-OrionLib:MakeNotification({
-	Name = "Lures Script",
-	Content = "Lures Script",
-	Image = "",
-	Time = 25
+	Content = "Melhor Script esta sendo carregado",
+	Image = "rbxassetid://111405391826275",
+	Time = 15
 })
 
 OrionLib:MakeNotification({
     Name = "Lures Script",
-    Content = "Please Wait loading script...,Do not enable any function",
+    Content = "Por Favor Espere...Carregando Script",
     Image = "",
     Time = 5
 })
@@ -11178,7 +11171,7 @@ spawn(function()
 
 OrionLib:MakeNotification({
         Name = "Lures Script",
-        Content = "Loading script complete!, You can now enable the function!",
+        Content = "Carregamento do script completado",
         Image = "",
         Time = 5
     })
@@ -11221,7 +11214,7 @@ OrionLib:Init()
 
 OrionLib:MakeNotification({
     Name = "Lures Script",
-    Content = "Loading Config Complete!!",
+    Content = "Carregamento Completado!!",
     Image = "",
     Time = 5
 })
