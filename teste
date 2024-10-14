@@ -1,1 +1,2 @@
 _G.Key = "1234"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/pedrinn007x5/Lures/refs/heads/main/teste3"))()
