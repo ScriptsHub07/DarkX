@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://pastebin.com/raw/WRUyYTdY')))()
-local Player = game.Player.LocalPlayer
+local Player = game.Players.LocalPlayer
 local Window = OrionLib:MakeWindow({Name = "Sistema de Chave | Lures Script", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 OrionLib:MakeNotification({
@@ -52,11 +52,11 @@ Tab:AddTextbox({
 Tab:AddButton({
 	Name = "Validar Chave",
 	Callback = function()
-      		if _G.KeyInput == _G.Key then
-                MakeScriptHub()
-                CorrectKeyNotification()
-            else
-                IncorrectKeyNotification
-            end
-  	end    
+		if _G.KeyInput == _G.Key then
+			MakeScriptHub()
+			CorrectKeyNotification()
+		else
+			IncorrectKeyNotification()
+		end
+	end    
 })
