@@ -1,0 +1,11 @@
+local keychecked = false
+
+if _G.Key == "1234" then
+    keychecked = true
+end
+
+if keychecked == true then  -- Corrigido para '==' em vez de '='
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/pedrinn007x5/Lures/refs/heads/main/Script"))()
+else
+    print("Chave Incorreta")  -- Agora o 'else' está corretamente posicionado
+end
