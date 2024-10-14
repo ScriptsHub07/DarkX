@@ -2510,7 +2510,7 @@ CamShake:Stop()
     end
 
 local OrionLib = loadstring(game:HttpGet(('https://pastebin.com/raw/WRUyYTdY')))()
-local Window = OrionLib:MakeWindow({Name = "Lures Script", HidePremium = false, IntroText = "Loading Lures Script...", SaveConfig = true, ConfigFolder = "Lures Script"})
+local Window = OrionLib:MakeWindow({Name = "Lures Script", HidePremium = false, IntroText = "Loading Lures Script...", SaveConfig = false, ConfigFolder = "Lures Script"})
 
 OrionLib:MakeNotification({
 	Name = "Lures Script",
@@ -3186,7 +3186,7 @@ M:AddToggle({
     Name = "Kaitun[Não derrota players]",
     Default = false,
     Flag = "Kaitun",
-    Save = true,
+    Save = false,
     Callback = function(Value)
         _G.RedeemCode = Value
         _G.AutoFarm = Value
