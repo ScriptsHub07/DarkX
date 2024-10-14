@@ -2624,8 +2624,8 @@ local Section = W:AddSection({
     Name = "Informations"
 })
 
-W:AddLabel("[+] Lures Script o melhor de todos")
-W:AddLabel("[+] Melhor Auto Farm")
+W:AddLabel("[+] Lures Script o Melhor de Todos")
+W:AddLabel("[+] Melhor Auto Farm Anti Ban")
 W:AddLabel("[+] Upe mais Rapido")
 W:AddLabel("[+] Script Leve")
 
@@ -3210,16 +3210,6 @@ M:AddToggle({
        StopTween(_G.Hunter)
        StopTween(_G.Farmfast)
        StopTween(_G.Auto_Saber)
-    end    
-})
-
-M:AddToggle({
-    Name = "Auto Click[Kick]",
-    Default = false,
-    Flag = "Auto Click",
-    Save = true,
-    Callback = function(Value)
-        _G.AutoClick = Value
     end    
 })
 
