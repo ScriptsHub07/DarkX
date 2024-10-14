@@ -3176,36 +3176,6 @@ Farmfasttoggle = M:AddToggle({
     end    
 })
 
-local Section = M:AddSection({
-    Name = "Kaitun"
-})
-
-M:AddParagraph("Kaitun","")
-
-M:AddToggle({
-    Name = "Kaitun[Não derrota players]",
-    Default = false,
-    Flag = "Kaitun",
-    Save = false,
-    Callback = function(Value)
-        _G.RedeemCode = Value
-        _G.AutoFarm = Value
-        _G.Farmfast = Value
-       _G.SelectWeapon = "Combat"
-       _G.AutoPlayerHunter = Value
-       _G.Auto_Stats_Kaitun = Value
-       _G.Auto_Saber = Value
-       _G.AutoSuperhuman = Value
-       _G.AutoBartilo = Value
-       _G.AutoBuyLegendarySword = Value
-       _G.BuyAllAib = Value
-       StopTween(_G.AutoFarm)
-       StopTween(_G.Hunter)
-       StopTween(_G.Farmfast)
-       StopTween(_G.Auto_Saber)
-    end    
-})
-
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
         if _G.AutoClick or Fastattack then
