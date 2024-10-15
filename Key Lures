@@ -203,7 +203,7 @@ Check.MouseButton1Click:Connect(function()
 		TextBox.Text = "Key Valida"
 		wait(1)
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/pedrinn007x5/Lures/refs/heads/main/Script"))()
-		ScreenGui:Destroy()
+		ScreenGui.Visible = false
 	else
 		TextBox.Text = "Key Invalida!Tente Novamente"
 		wait(1)
