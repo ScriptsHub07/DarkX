@@ -30,6 +30,7 @@ Backgrounds.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
 Backgrounds.BackgroundTransparency = 0.500
 Backgrounds.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Backgrounds.BorderSizePixel = 0
+Backgrounds.Draggable = true
 Backgrounds.Position = UDim2.new(0.499630541, 0, 0.499216288, 0)
 Backgrounds.Size = UDim2.new(0, 418, 0, 261)
 
