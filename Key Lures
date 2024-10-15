@@ -1,7 +1,3 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
 local ScreenGui = Instance.new("ScreenGui")
 local Backgrounds = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -206,7 +202,7 @@ Check.MouseButton1Click:Connect(function()
 		TextBox.Text = "Key Valida"
 		wait(1)
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/pedrinn007x5/Lures/refs/heads/main/Script"))()
-		ScreenGui.Destroy()
+		ScreenGui:Destroy()
 	else
 		TextBox.Text = "Key Invalida!Tente Novamente"
 		wait(1)
