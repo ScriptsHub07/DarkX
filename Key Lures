@@ -175,6 +175,9 @@ UICorner_7.Parent = Maximise
 
 -- Scripts:
 
+_G.Keyadm = "LuresScript04"
+_G.Key = "nothing yet"
+
 local function TIBURLS_fake_script() -- Mini.MiniS 
 	local script = Instance.new('LocalScript', Mini)
 
@@ -192,21 +195,24 @@ local function DIRFNM_fake_script() -- Maximise.MaxS
 end
 coroutine.wrap(DIRFNM_fake_script)()
 
-local key = "Lures"
+_G.CheckKey = false
+local key = game:HttpGet("https://redirect-api.work.ink/tokenValid/" .. _G.Key .. "?linkId=64581")
+if key == 'False' then
+    print("Key Incorreta!!")
+    return
+end
 
 Copy.MouseButton1Click:Connect(function()
-	setclipboard("Link") 
+	setclipboard("https://gateway.platoboost.com/l/83268/7i091fdh") 
 end)
 
+_G.CheckedKey = true
 Check.MouseButton1Click:Connect(function()
-	if TextBox.Text == key then
-		TextBox.Text = "Key Valida"
-		wait(1)
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/pedrinn007x5/Lures/refs/heads/main/Script"))()
-		ScreenGui.Visible = false
-	else
-		TextBox.Text = "Key Invalida!Tente Novamente"
-		wait(1)
-		TextBox.Text = "Coloque a Key"
-	end
+    local script = loadstring(game:HttpGet('https://raw.githubusercontent.com/pedrinn007x5/Lures/refs/heads/main/Script'))()
+    
+    if script then
+        script()
+    else
+        _G.Keyadm = true
+    end
 end)
