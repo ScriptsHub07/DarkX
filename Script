@@ -2925,7 +2925,7 @@ M:AddToggle({
 
     M:AddSlider({
         Name = "Health Mob",
-        Min = 0,
+        Min = 1,
         Max = 100,
         Default = 25,
         Color = Color3.fromRGB(255,255,255),
