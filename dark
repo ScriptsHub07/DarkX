@@ -3545,7 +3545,6 @@ M:AddToggle({
     Callback = function(Value)
         _G.RedeemCode = Value
         _G.AutoFarm = Value
-        _G.Farmfast = Value
        _G.SelectWeapon = "Combat"
        _G.AutoPlayerHunter = Value
        _G.Auto_Stats_Kaitun = Value
