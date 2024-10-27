@@ -3556,7 +3556,6 @@ M:AddToggle({
        _G.BuyAllAib = Value
        StopTween(_G.AutoFarm)
        StopTween(_G.Hunter)
-       StopTween(_G.Farmfast)
        StopTween(_G.Auto_Saber)
     end    
 })
