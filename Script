@@ -3537,11 +3537,11 @@ local Section = M:AddSection({
       Flag = "Kaitun",
       Save = true,
       Callback = function(Value)
+	if MyLevel <= 2550 then
          _G.RedeemCode = Value
-	 _G.AutoFarm = Value
-	if MyLevel == 2550 then
-          _G.AutoFarm = false
-	end
+         _G.AutoFarm = true
+	else MyLevel == 2550 then
+         _G.AutoFarm = false
          _G.SelectWeapon = "Combat"
          _G.AutoPlayerHunter = Value
          _G.Auto_Stats_Kaitun = Value
@@ -3550,12 +3550,14 @@ local Section = M:AddSection({
          _G.AutoBartilo = Value
          _G.AutoBuyLegendarySword = Value
          _G.BuyAllAib = Value
-        _G.Auto_Random_Bone = Value
-        _G.Auto_Bone = Value
-        StopTween(_G.Auto_Bone)
+         _G.Auto_Random_Bone = Value
+         _G.Auto_Bone = Value
+         StopTween(_G.Auto_Bone)
          StopTween(_G.AutoFarm)
          StopTween(_G.Hunter)
          StopTween(_G.Auto_Saber)
+	 end
+	end
       end    
   })
 
