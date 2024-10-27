@@ -3525,42 +3525,6 @@ local EliteProgress = M:AddLabel("")
         end    
     })
 
-local Section = M:AddSection({
-      Name = "Kaitun"
-  })
-  
-  M:AddParagraph("Farm Kaitun")
-  
-  M:AddToggle({
-      Name = "Auto Kaitun",
-      Default = false,
-      Flag = "Kaitun",
-      Save = true,
-      Callback = function(Value)
-	if MyLevel <= 2550 then
-         _G.RedeemCode = Value
-         _G.AutoFarm = true
-	else MyLevel == 2550 then
-         _G.AutoFarm = false
-         _G.SelectWeapon = "Combat"
-         _G.AutoPlayerHunter = Value
-         _G.Auto_Stats_Kaitun = Value
-         _G.Auto_Saber = Value
-         _G.AutoSuperhuman = Value
-         _G.AutoBartilo = Value
-         _G.AutoBuyLegendarySword = Value
-         _G.BuyAllAib = Value
-         _G.Auto_Random_Bone = Value
-         _G.Auto_Bone = Value
-         StopTween(_G.Auto_Bone)
-         StopTween(_G.AutoFarm)
-         StopTween(_G.Hunter)
-         StopTween(_G.Auto_Saber)
-	 end
-	end
-      end    
-  })
-
     ST:AddToggle({
         Name = "Auto Haki",
         Default = true,
