@@ -2637,8 +2637,7 @@ CamShake:Stop()
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner",Value)
                 _G.AutoElitehunter = Value
                 StopTween(_G.AutoElitehunter)
-            end
-            if MyLevel <= 2549 then
+            elseif MyLevel <= 2549 then
                 _G.RedeemCode = Value
                 _G.AutoFarm = Value
                 _G.SelectWeapon = "Combat"
