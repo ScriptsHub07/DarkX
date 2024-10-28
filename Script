@@ -3532,18 +3532,11 @@ local Section = M:AddSection({
 M:AddParagraph("Kaitun")
 
 M:AddToggle({
-    Name = "Kaitun",
+    Name = "Kaitun Auto Lvl",
     Default = false,
     Flag = "Kaitun",
     Save = true,
     Callback = function(Value)
-	if MyLevel == 2550 then
-	    _G.AutoDoughtBoss = Value
-        StopTween(_G.AutoDoughtBoss)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner",Value)
-        _G.AutoElitehunter = Value
-        StopTween(_G.AutoElitehunter)
-	elseif MyLevel <= 2549 then
         _G.RedeemCode = Value
         _G.AutoFarm = Value
         _G.SelectWeapon = "Combat"
@@ -3557,7 +3550,6 @@ M:AddToggle({
         StopTween(_G.AutoFarm)
         StopTween(_G.Hunter)
         StopTween(_G.Auto_Saber)
-    end
     end    
 })
 
