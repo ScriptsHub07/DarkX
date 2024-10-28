@@ -2626,18 +2626,12 @@ CamShake:Stop()
     M:AddParagraph("Kaitun")
     
     M:AddToggle({
-        Name = "Iniciar Kaitun",
+        Name = "Iniciar Kaitun lvl -2550",
         Default = false,
         Flag = "Kaitun",
         Save = true,
         Callback = function(Value)
-            if MyLevel == 2550 then
-                _G.AutoDoughtBoss = Value
-                StopTween(_G.AutoDoughtBoss)
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner",Value)
-                _G.AutoElitehunter = Value
-                StopTween(_G.AutoElitehunter)
-            elseif MyLevel <= 2549 then
+            if MyLevel <= 2549 then
                 _G.RedeemCode = Value
                 _G.AutoFarm = Value
                 _G.SelectWeapon = "Combat"
@@ -2653,4 +2647,20 @@ CamShake:Stop()
                 StopTween(_G.Auto_Saber)
             end
         end    
+    })
+
+    M:AddToggle({
+        Name = "Iniciar Kaitun lvl +2550",
+        Default = false,
+        Flag = "Kaitun",
+        Save = true,
+        Callback = function(Value)
+            if MyLevel == 2550 then
+                _G.AutoDoughtBoss = Value
+                StopTween(_G.AutoDoughtBoss)
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner",Value)
+                _G.AutoElitehunter = Value
+                StopTween(_G.AutoElitehunter)
+            end
+        end
     })
