@@ -1,3 +1,13 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Sistema de Key", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "Lures Key..."})
+
+OrionLib:MakeNotification({
+	Name = "Notificação",
+	Content = "Logado na conta "..Player.Name..".",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
 _G.Key = "KEY_aa4j0635"
 _G.KeyInput = "string"
 
@@ -22,16 +32,6 @@ function IncorrectKeyNotification()
         Time = 5
     })
 end
-
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Sistema de Key", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "Lures Key..."})
-
-OrionLib:MakeNotification({
-	Name = "Notificação",
-	Content = "Logado na conta "..Player.Name..".",
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
 
 local Tab = Window:MakeTab({
 	Name = "Creditos",
