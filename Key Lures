@@ -1,114 +1,99 @@
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+_G.Key = "KEY_aa4j0635"
+_G.KeyInput = "string"
 
-local Frame = Instance.new("Frame")
-Frame.Size = UDim2.new(0, 400, 0, 300)
-Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
-Frame.AnchorPoint = Vector2.new(0.5, 0.5)
-Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-Frame.BorderSizePixel = 0
-Frame.Active = true
-Frame.Draggable = true
-Frame.Parent = ScreenGui
-
-local FrameCorner = Instance.new("UICorner")
-FrameCorner.CornerRadius = UDim.new(0, 10)
-FrameCorner.Parent = Frame
-
-local Close = Instance.new("TextButton")
-Close.Size = UDim2.new(0, 40, 0, 40)
-Close.Position = UDim2.new(1, -40, 0, 0)
-Close.BackgroundTransparency = 1
-Close.Text = "×"
-Close.TextScaled = true
-Close.TextColor3 = Color3.fromRGB(150, 150, 150)
-Close.Parent = Frame
-Close.MouseButton1Click:Connect(function()
-   ScreenGui:Destroy()
-end)
-
-local Title = Instance.new("TextLabel")
-Title.Size = UDim2.new(1, 0, 0, 30)
-Title.Position = UDim2.new(0, 0, 0.05, 0)
-Title.Text = "Sistema de Key"
-Title.TextSize = 18
-Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-Title.BackgroundTransparency = 1
-Title.Parent = Frame
-
-local Instructions = Instance.new("TextLabel")
-Instructions.Size = UDim2.new(1, 0, 0, 30)
-Instructions.Position = UDim2.new(0, 0, 0.2, 0)
-Instructions.Text = "Coloque a Key para Acessar o Script"
-Instructions.TextSize = 13
-Instructions.TextColor3 = Color3.fromRGB(150, 150, 150)
-Instructions.BackgroundTransparency = 1
-Instructions.Parent = Frame
-
-local TextBox = Instance.new("TextBox")
-TextBox.Size = UDim2.new(0.8, 0, 0.2, 0)
-TextBox.Position = UDim2.new(0.1, 0, 0.4, 0)
-TextBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-TextBox.PlaceholderText = "Cole a Key..."
-TextBox.Text = ""
-TextBox.TextSize = 18
-TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextBox.Parent = Frame
-
-local TextBoxCorner = Instance.new("UICorner")
-TextBoxCorner.CornerRadius = UDim.new(0, 5)
-TextBoxCorner.Parent = TextBox
-
-local GetKey = Instance.new("TextButton")
-GetKey.Size = UDim2.new(0.35, 0, 0.15, 0)
-GetKey.Position = UDim2.new(0.1, 0, 0.7, 0)
-GetKey.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-GetKey.Text = "Pegar Key"
-GetKey.TextSize = 18
-GetKey.TextColor3 = Color3.fromRGB(150, 150, 150)
-GetKey.Parent = Frame
-
-local GetKeyCorner = Instance.new("UICorner")
-GetKeyCorner.CornerRadius = UDim.new(0, 5)
-GetKeyCorner.Parent = GetKey
-
-local CheckKey = Instance.new("TextButton")
-CheckKey.Size = UDim2.new(0.35, 0, 0.15, 0)
-CheckKey.Position = UDim2.new(0.55, 0, 0.7, 0)
-CheckKey.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-CheckKey.Text = "Verificar Key"
-CheckKey.TextSize = 18
-CheckKey.TextColor3 = Color3.fromRGB(150, 150, 150)
-CheckKey.Parent = Frame
-
-local CheckKeyCorner = Instance.new("UICorner")
-CheckKeyCorner.CornerRadius = UDim.new(0, 5)
-CheckKeyCorner.Parent = CheckKey
-
-GetKey.MouseButton1Click:Connect(function()
-   setclipboard("https://loot-link.com/s?08fde99c")
-end)
-
-local function validateKey(key)
-    return key == "KEY_aa4j0635" -- Replace this with your key
+function MakeScriptHub()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/README.md"))()
 end
 
-CheckKey.MouseButton1Click:Connect(function()
-    local enteredKey = TextBox.Text
-    if validateKey(enteredKey) then
-        TextBox.PlaceholderText = "Key Correta!"
-        TextBox.Text = ""
-        wait(1)
-        ScreenGui:Destroy()
+function CorrectKeyNotification()
+    OrionLib:MakeNotification({
+        Name = "Key Correta",
+        Content = "Você colocou a Key certa!",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
 
--- Put Your Script Here
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/README.md"))()
+function IncorrectKeyNotification()
+    OrionLib:MakeNotification({
+        Name = "Key Incorreta",
+        Content = "Você colocou a Key errada",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
 
-    else
-        TextBox.PlaceholderText = "Invalid key. Try again."
-        TextBox.Text = ""
-        wait(1)
-        TextBox.PlaceholderText = "Cole a Key..."
-        TextBox.Text = ""
-    end
-end)
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Sistema de Key", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "Lures Key..."})
+
+OrionLib:MakeNotification({
+	Name = "Notificação",
+	Content = "Logado na conta "..Player.Name..".",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+local Tab = Window:MakeTab({
+	Name = "Creditos",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Ta = Window:MakeTab({
+	Name = "Pegar Key",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Redes Sociais"
+})
+
+Tab:AddButton({
+	Name = "Discord",
+	Callback = function()
+        https://discord.com/invite/qE5CM9Sp3A
+  	end    
+})
+
+Tab:AddButton({
+	Name = "YouTube",
+	Callback = function()
+        https://www.youtube.com/@eolures
+  	end    
+})
+
+Tab:AddButton({
+	Name = "TikTok",
+	Callback = function()
+      	print("Sem Link")
+  	end    
+})
+
+Ta:AddTextbox({
+	Name = "Cole a Key",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		_G.KeyInput = Value
+	end	  
+})
+
+Ta:AddButton({
+	Name = "Verificar Key",
+	Callback = function()
+        if _G.KeyInput == _G.Key then
+            MakeScriptHub()
+            CorrectKeyNotification()
+        else
+            IncorrectKeyNotification()
+        end
+  	end    
+})
+
+Ta:AddButton({
+	Name = "Pegar Key",
+	Callback = function()
+        setclipboard("https://loot-link.com/s?08fde99c")
+  	end    
+})
