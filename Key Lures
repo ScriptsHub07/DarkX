@@ -89,6 +89,6 @@ K:AddButton({
 Tab:AddButton({
 	Name = "Copiar Link",
 	Callback = function()
-      		setclipboard("https://gateway.platoboost.com/l/89205/Lures_Script")
+      		setclipboard("https://loot-link.com/s?9466c87c")
   	end    
 })
