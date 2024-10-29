@@ -1,3 +1,10 @@
+_G.Key = "KEY_aa4j0635"
+_G.KeyInput = "string"
+
+function MakeScriptHub()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/README.md"))()
+end
+
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Sistema de Key", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "Loading Lures Key..."})
 
@@ -7,13 +14,6 @@ OrionLib:MakeNotification({
 	Image = "",
 	Time = 5
 })
-
-_G.Key = "KEY_aa4j0635"
-_G.KeyInput = "string"
-
-function MakeScriptHub()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/README.md"))()
-end
 
 function CorrectKeyNotification()
 	OrionLib:MakeNotification({
