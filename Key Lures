@@ -1,218 +1,87 @@
-local ScreenGui = Instance.new("ScreenGui")
-local Backgrounds = Instance.new("Frame")
-local UICorner = Instance.new("UICorner")
-local DropShadowHolder = Instance.new("Frame")
-local DropShadow = Instance.new("ImageLabel")
-local TextBox = Instance.new("TextBox")
-local UICorner_2 = Instance.new("UICorner")
-local Copy = Instance.new("TextButton")
-local UICorner_3 = Instance.new("UICorner")
-local Check = Instance.new("TextButton")
-local UICorner_4 = Instance.new("UICorner")
-local Sistema = Instance.new("TextLabel")
-local Lures = Instance.new("TextLabel")
-local Mini = Instance.new("TextButton")
-local UICorner_5 = Instance.new("UICorner")
-local ImageLabel = Instance.new("ImageLabel")
-local UICorner_6 = Instance.new("UICorner")
-local Maximise = Instance.new("TextButton")
-local UICorner_7 = Instance.new("UICorner")
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Sistema de Key", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "Loading Lures Key..."})
 
---Properties:
+OrionLib:MakeNotification({
+	Name = "Logado em",
+	Content = "Logado na conta "..Player.Name..".",
+	Image = "",
+	Time = 5
+})
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+_G.Key = "KEY_aa4j0635"
+_G.KeyInput = "string"
 
-Backgrounds.Name = "Backgrounds"
-Backgrounds.Parent = ScreenGui
-Backgrounds.AnchorPoint = Vector2.new(0.5, 0.5)
-Backgrounds.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
-Backgrounds.BackgroundTransparency = 0.500
-Backgrounds.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Backgrounds.BorderSizePixel = 0
-Backgrounds.Draggable = true
-Backgrounds.Position = UDim2.new(0.499630541, 0, 0.499216288, 0)
-Backgrounds.Size = UDim2.new(0, 418, 0, 261)
-
-UICorner.Parent = Backgrounds
-
-DropShadowHolder.Name = "DropShadowHolder"
-DropShadowHolder.Parent = Backgrounds
-DropShadowHolder.BackgroundTransparency = 1.000
-DropShadowHolder.BorderSizePixel = 0
-DropShadowHolder.Size = UDim2.new(1, 0, 1, 0)
-DropShadowHolder.ZIndex = 0
-
-DropShadow.Name = "DropShadow"
-DropShadow.Parent = DropShadowHolder
-DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
-DropShadow.BackgroundTransparency = 1.000
-DropShadow.BorderSizePixel = 0
-DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-DropShadow.Size = UDim2.new(1, 47, 1, 47)
-DropShadow.ZIndex = 0
-DropShadow.Image = "rbxassetid://6014261993"
-DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
-DropShadow.ImageTransparency = 0.500
-DropShadow.ScaleType = Enum.ScaleType.Slice
-DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
-
-TextBox.Parent = Backgrounds
-TextBox.BackgroundColor3 = Color3.fromRGB(59, 59, 59)
-TextBox.BackgroundTransparency = 0.500
-TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextBox.BorderSizePixel = 0
-TextBox.Position = UDim2.new(0.260765553, 0, 0.298850566, 0)
-TextBox.Size = UDim2.new(0, 200, 0, 50)
-TextBox.Font = Enum.Font.SourceSans
-TextBox.Text = "Cole a Key..."
-TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextBox.TextSize = 24.000
-
-UICorner_2.Parent = TextBox
-
-Copy.Name = "Copy"
-Copy.Parent = Backgrounds
-Copy.BackgroundColor3 = Color3.fromRGB(59, 59, 59)
-Copy.BackgroundTransparency = 0.500
-Copy.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Copy.BorderSizePixel = 0
-Copy.Position = UDim2.new(0.047846891, 0, 0.71647507, 0)
-Copy.Size = UDim2.new(0, 149, 0, 47)
-Copy.Font = Enum.Font.SourceSans
-Copy.Text = "Pegar Key"
-Copy.TextColor3 = Color3.fromRGB(255, 255, 255)
-Copy.TextSize = 29.000
-
-UICorner_3.Parent = Copy
-
-Check.Name = "Check"
-Check.Parent = Backgrounds
-Check.BackgroundColor3 = Color3.fromRGB(59, 59, 59)
-Check.BackgroundTransparency = 0.500
-Check.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Check.BorderSizePixel = 0
-Check.Position = UDim2.new(0.595693767, 0, 0.71647507, 0)
-Check.Size = UDim2.new(0, 149, 0, 47)
-Check.Font = Enum.Font.SourceSans
-Check.Text = "Validar Key"
-Check.TextColor3 = Color3.fromRGB(255, 255, 255)
-Check.TextSize = 29.000
-
-UICorner_4.Parent = Check
-
-Sistema.Name = "Sistema"
-Sistema.Parent = Backgrounds
-Sistema.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Sistema.BackgroundTransparency = 1.000
-Sistema.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Sistema.BorderSizePixel = 0
-Sistema.Position = UDim2.new(0.205741629, 0, 0.068965517, 0)
-Sistema.Size = UDim2.new(0, 245, 0, 50)
-Sistema.Font = Enum.Font.SourceSans
-Sistema.Text = "Sistema de Key 🔑"
-Sistema.TextColor3 = Color3.fromRGB(255, 255, 255)
-Sistema.TextSize = 38.000
-
-Lures.Name = "Lures"
-Lures.Parent = Backgrounds
-Lures.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Lures.BackgroundTransparency = 1.000
-Lures.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Lures.BorderSizePixel = 0
-Lures.Position = UDim2.new(0.297311872, 0, 0.536050141, 0)
-Lures.Size = UDim2.new(0, 169, 0, 37)
-Lures.Font = Enum.Font.SourceSans
-Lures.Text = "Lures Script | by É o Lures"
-Lures.TextColor3 = Color3.fromRGB(255, 255, 255)
-Lures.TextSize = 18.000
-
-Mini.Name = "Mini"
-Mini.Parent = Backgrounds
-Mini.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Mini.BackgroundTransparency = 1.000
-Mini.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Mini.BorderSizePixel = 0
-Mini.Position = UDim2.new(0.897129178, 0, 0, 0)
-Mini.Size = UDim2.new(0, 43, 0, 29)
-Mini.Font = Enum.Font.SourceSans
-Mini.Text = "-"
-Mini.TextColor3 = Color3.fromRGB(255, 255, 255)
-Mini.TextScaled = true
-Mini.TextSize = 24.000
-Mini.TextWrapped = true
-
-UICorner_5.Parent = Mini
-
-ImageLabel.Parent = Backgrounds
-ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ImageLabel.BorderSizePixel = 0
-ImageLabel.Position = UDim2.new(0.0287081338, 0, 0.0229885057, 0)
-ImageLabel.Size = UDim2.new(0, 45, 0, 45)
-ImageLabel.Image = "rbxassetid://80525540359341"
-
-UICorner_6.CornerRadius = UDim.new(1, 0)
-UICorner_6.Parent = ImageLabel
-
-Maximise.Name = "Maximise"
-Maximise.Parent = ScreenGui
-Maximise.AnchorPoint = Vector2.new(0.5, 0.5)
-Maximise.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
-Maximise.BackgroundTransparency = 0.050
-Maximise.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Maximise.BorderSizePixel = 0
-Maximise.Position = UDim2.new(0.780228078, 0, 0.0663839132, 0)
-Maximise.Size = UDim2.new(0, 50, 0, 50)
-Maximise.Font = Enum.Font.SourceSans
-Maximise.Text = "V"
-Maximise.TextColor3 = Color3.fromRGB(255, 255, 255)
-Maximise.TextScaled = true
-Maximise.TextSize = 14.000
-Maximise.TextWrapped = true
-
-UICorner_7.Parent = Maximise
-
--- Scripts:
-
-_G.Keyadm = "LuresScript04"
-_G.Key = "nothing yet"
-
-local function TIBURLS_fake_script() -- Mini.MiniS 
-	local script = Instance.new('LocalScript', Mini)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		script.Parent.Parent.Visible = false
-	end)
-end
-coroutine.wrap(TIBURLS_fake_script)()
-local function DIRFNM_fake_script() -- Maximise.MaxS 
-	local script = Instance.new('LocalScript', Maximise)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		script.Parent.Parent.Backgrounds.Visible = true
-	end)
-end
-coroutine.wrap(DIRFNM_fake_script)()
-
-_G.CheckKey = false
-local key = game:HttpGet("https://redirect-api.work.ink/tokenValid/" .. _G.Key .. "?linkId=64581")
-if key == 'False' then
-    print("Key Incorreta!!")
-    return
+function MakeScriptHub()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/README.md"))()
 end
 
-Copy.MouseButton1Click:Connect(function()
-	setclipboard("https://gateway.platoboost.com/l/83268/7i091fdh") 
-end)
+function CorrectKeyNotification()
+	OrionLib:MakeNotification({
+	Name = "Key Correta",
+	Content = "Você colocou a Key Certa",
+	Image = "",
+	Time = 5
+})
+end
 
-_G.CheckedKey = true
-Check.MouseButton1Click:Connect(function()
-    local script = loadstring(game:HttpGet('https://raw.githubusercontent.com/pedrinn007x5/Lures/refs/heads/main/Script'))()
-    
-    if script then
-        script()
-    else
-        _G.Keyadm = true
-    end
-end)
+function IncorrectCorrectKeyNotification()
+	OrionLib:MakeNotification({
+	Name = "Key Errada",
+	Content = "Você colocou a Key Errada",
+	Image = "",
+	Time = 5
+})
+end
+
+local C = Window:MakeTab({
+	Name = "Creditos",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+C:AddLabel("É o Lures")
+
+C:AddLabel("Entre no Discord")
+
+C:AddButton({
+	Name = "Discord",
+	Callback = function()
+      		setclipboard("https://discord.com/invite/qE5CM9Sp3A")
+  	end    
+})
+
+C:AddLabel("Se inscreva no YouTube")
+
+C:AddButton({
+	Name = "YouTube",
+	Callback = function()
+      		setclipboard("https://www.youtube.com/@eolures")
+  	end    
+})
+
+local K = Window:MakeTab({
+	Name = "Pegar Key",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+K:AddTextbox({
+	Name = "Enter Key",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		_G.KeyInput = Value
+	end	  
+})
+
+K:AddButton({
+	Name = "Verificar Key",
+	Callback = function()
+      		if _G.KeyInput == _G.Key then
+		MakeScriptHub()
+		CorrectKeyNotification()
+		else
+			IncorrectCorrectKeyNotification()
+		end
+  	end    
+})
