@@ -30,7 +30,7 @@ end)
 local Title = Instance.new("TextLabel")
 Title.Size = UDim2.new(1, 0, 0, 30)
 Title.Position = UDim2.new(0, 0, 0.05, 0)
-Title.Text = "Key System 🔑"
+Title.Text = "Sistema de Key|Lures"
 Title.TextSize = 18
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.BackgroundTransparency = 1
@@ -39,7 +39,7 @@ Title.Parent = Frame
 local Instructions = Instance.new("TextLabel")
 Instructions.Size = UDim2.new(1, 0, 0, 30)
 Instructions.Position = UDim2.new(0, 0, 0.2, 0)
-Instructions.Text = "Coloque a Key para liberar o script!!"
+Instructions.Text = "Coloque a Key para ter acesso ao Script"
 Instructions.TextSize = 13
 Instructions.TextColor3 = Color3.fromRGB(150, 150, 150)
 Instructions.BackgroundTransparency = 1
@@ -49,7 +49,7 @@ local TextBox = Instance.new("TextBox")
 TextBox.Size = UDim2.new(0.8, 0, 0.2, 0)
 TextBox.Position = UDim2.new(0.1, 0, 0.4, 0)
 TextBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-TextBox.PlaceholderText = "Coloque a Key..."
+TextBox.PlaceholderText = "Colocar Key..."
 TextBox.Text = ""
 TextBox.TextSize = 18
 TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -86,11 +86,11 @@ CheckKeyCorner.CornerRadius = UDim.new(0, 5)
 CheckKeyCorner.Parent = CheckKey
 
 GetKey.MouseButton1Click:Connect(function()
-   setclipboard("https://loot-link.com/s?08fde99c")
+   setclipboard("https://encurtador.com.br/qAbhc")
 end)
 
 local function validateKey(key)
-    return key == "KEY_aa4j0635" -- Replace this with your key
+    return key == game:HttpGet("https://gateway.platoboost.com/a/8?id=862cdc460cb2c3ad5293635dc752bd5192035bf62c2c9d0883b26e7172ede3b6") -- Replace this with your key
 end
 
 CheckKey.MouseButton1Click:Connect(function()
@@ -102,13 +102,13 @@ CheckKey.MouseButton1Click:Connect(function()
         ScreenGui:Destroy()
 
 -- Put Your Script Here
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/README.md"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/Script"))()
 
     else
-        TextBox.PlaceholderText = "Key errada, tente denovo."
+        TextBox.PlaceholderText = "Key invalida. Tente novamente!"
         TextBox.Text = ""
         wait(1)
-        TextBox.PlaceholderText = "Coloque a Key..."
+        TextBox.PlaceholderText = "Colocar Key..."
         TextBox.Text = ""
     end
 end)
