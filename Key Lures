@@ -2,7 +2,7 @@ local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Ka
 local window = lib.CreateLib("Sistema de Key", "DarkTheme")
 
 local Main = window:NewTab("Pegar Key")
-local Section = Main:NewSection("Sistema de Key")
+local Section = Main:NewSection("Key")
 
 _G.Key = "nothing yet"
 
@@ -10,11 +10,11 @@ Section:NewButton("Copiar Link", function()
     setclipboard("https://gateway.platoboost.com/a/83268?id=") -- Add your key link
 end)
 
-Section:NewButton("Copiar chave do Link", function()
+Section:NewButton("Copiar Chave do Link", function()
     setclipboard(game:GetService("RbxAnalyticsService"):GetClientId()) -- Add your key link
 end)
 
-local KeyLabel = Section:NewLabel("Key | ".. _G.Key)
+local KeyLabel = Section:NewLabel("Key 1 | ".. _G.Key)
 local KeyInput = Section:NewTextBox("Key", "Key",
     function(txt)
         KeyLabel:UpdateLabel("Key > " .. txt)
@@ -23,12 +23,12 @@ local KeyInput = Section:NewTextBox("Key", "Key",
     end)
 
 _G.CheckKey = false
-local OutputLabel = Section:NewLabel("")
+local OutputLabel = Section:NewLabel("")  
 function CheckKey()
     if _G.CheckedKey == true then
         return
     end
-    local key = game:HttpGet("https://gateway.platoboost.com/a/83268?id=")
+    local key = game:HttpGet("https://redirect-api.work.ink/tokenValid/" .. _G.Key .. "?linkId=64581")
     if key == 'False' then
         OutputLabel:UpdateLabel("Key Errada")
         return
