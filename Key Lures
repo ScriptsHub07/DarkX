@@ -4,13 +4,6 @@ local Window = OrionLib:MakeWindow({Name = "Sistema de Key", HidePremium = false
 _G.Key = ""
 _G.CheckKey = false
 
-OrionLib:MakeNotification({
-	Name = "Notificação!!",
-	Content = "Pegue a Key para Liberar o Script",
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
-
 local Tab = Window:MakeTab({
 	Name = "Pegar Key",
 	Icon = "rbxassetid://4483345998",
@@ -27,7 +20,6 @@ Tab:AddTextbox({
 	TextDisappear = true,
 	Callback = function(Value)
 		_G.Key = Value
-        CheckKey()
 	end	  
 })
 
@@ -38,22 +30,15 @@ Tab:AddButton({
   	end    
 })
 
-local key = game:HttpGet("https://gateway.platoboost.com/a/83268?id=" .. _G.Key ..)
-    if key == 'False' then
-        OrionLib:MakeNotification({
-            Name = "Notificação!!",
-            Content = "A Key inserida esta errada!!",
-            Image = "rbxassetid://4483345998",
-            Time = 5
-        })
-        return
-    end
+local key = game:HttpGet("https://gateway.platoboost.com/a/83268?id=123456")
 
 Tab:AddButton({
 	Name = "Verificar Key",
 	Callback = function()
-      	if _G.CheckKey == true then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/README.md"))()
-        end
-  	end    
+	if key == false then
+        print("Key Errada")
+    else
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/Script"))()
+    end
+end
 })
