@@ -89,6 +89,9 @@ GetKey.MouseButton1Click:Connect(function()
    setclipboard("https://gateway.platoboost.com/a/83268?id=123456")
 end)
 
+local Hwid = game:GetService("RbxAnalyticsService"):GetClientId()
+_G.Hwidplr = Hwid
+
 local accountId = 83268; -- Plato account id [IMPORTANT]
 local allowPassThrough = false; -- Allow user through if error occurs, may reduce security
 local allowKeyRedeeming = false; -- Automatically check keys to redeem if valid
@@ -105,8 +108,7 @@ local localPlayerId = game:GetService("Players").LocalPlayer.UserId;
 local rateLimit, rateLimitCountdown, errorWait = false, 0, false;
 
 local function validateKey(key)
-    return key == loadstring(game:HttpGet("https://gateway.platoboost.com/a/83268?id=123456"))() -- Replace this with your key
-end
+    return key == "https://gateway.platoboost.com/a/83268?id=".._G.Hwidplr.."A"
 
 CheckKey.MouseButton1Click:Connect(function()
     local enteredKey = TextBox.Text
@@ -117,7 +119,7 @@ CheckKey.MouseButton1Click:Connect(function()
         ScreenGui:Destroy()
 
 -- Put Your Script Here
-loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/README.md"))()
 
     else
         TextBox.PlaceholderText = "Key errada. Tente novamente!!"
