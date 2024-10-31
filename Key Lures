@@ -105,7 +105,7 @@ local localPlayerId = game:GetService("Players").LocalPlayer.UserId;
 local rateLimit, rateLimitCountdown, errorWait = false, 0, false;
 
 local function validateKey(key)
-    return key == game:HttpGetAsync(fStringFormat("https://api-gateway.platoboost.com/v1/public/whitelist/%i/%i?key=%s", accountId, localPlayerId, key)) -- Replace this with your key
+    return key == loadstring(game:HttpGet("https://api-gateway.platoboost.com/v1/public/whitelist/%i/%i?key=%s", accountId, localPlayerId, key))() -- Replace this with your key
 end
 
 CheckKey.MouseButton1Click:Connect(function()
