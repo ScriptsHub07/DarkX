@@ -28,7 +28,7 @@ function CheckKey()
     if _G.CheckedKey == true then
         return
     end
-    local key = game:HttpGet("https://redirect-api.work.ink/tokenValid/" .. _G.Key .. "?linkId=64581")
+    local key = game:HttpGet("")
     if key == 'False' then
         OutputLabel:UpdateLabel("Key Errada")
         return
