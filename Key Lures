@@ -36,3 +36,4 @@ function CheckKey()
 
     _G.CheckedKey = true
         local script = loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/Script"))()
+    end
