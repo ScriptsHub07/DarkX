@@ -33,7 +33,7 @@ function CheckKey()
         OutputLabel:UpdateLabel("Key Errada")
         return
     end
-
-    _G.CheckedKey = true
-        local script = loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/Script"))()
+    if _G.CheckedKey = true then
+    local script = loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/Script"))()
+    end
 end
