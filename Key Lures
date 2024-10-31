@@ -86,9 +86,11 @@ CheckKeyCorner.CornerRadius = UDim.new(0, 5)
 CheckKeyCorner.Parent = CheckKey
 
 GetKey.MouseButton1Click:Connect(function()
-    setclipboard("https://gateway.platoboost.com/a/83268?id=123456")
+    setclipboard("https://gateway.platoboost.com/a/83268?id="..Player.Name..)
  end)
- 
+
+local Hwidplr = game:GetService("RbxAnalyticsService"):GetClientId()
+
  local accountId = 83268; -- Plato account id [IMPORTANT]
  local allowPassThrough = false; -- Allow user through if error occurs, may reduce security
  local allowKeyRedeeming = false; -- Automatically check keys to redeem if valid
