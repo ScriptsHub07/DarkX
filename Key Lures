@@ -35,10 +35,10 @@ local key = game:HttpGet("https://gateway.platoboost.com/a/83268?id=123456")
 Tab:AddButton({
 	Name = "Verificar Key",
 	Callback = function()
-	if key == false then
-        print("Key Errada")
-    else
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/Script"))()
+	    if key == false then
+            print("Key Errada")
+        else
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/Script"))()
+        end
     end
-end
 })
