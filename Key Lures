@@ -23,7 +23,6 @@ local KeyInput = Section:NewTextBox("Key", "Key",
     end)
 
 _G.CheckKey = false
-local OutputLabel = Section:NewLabel("https://gateway.platoboost.com/a/83268")  
 function CheckKey()
     if _G.CheckedKey == true then
         return
