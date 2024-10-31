@@ -108,7 +108,7 @@ local localPlayerId = game:GetService("Players").LocalPlayer.UserId;
 local rateLimit, rateLimitCountdown, errorWait = false, 0, false;
 
 local function validateKey(key)
-    return key == "https://gateway.platoboost.com/a/83268?id=".._G.Hwidplr.."A"
+    return key == "https://gateway.platoboost.com/a/83268?id=" .._G.Hwidplr.. "A"
 
 CheckKey.MouseButton1Click:Connect(function()
     local enteredKey = TextBox.Text
