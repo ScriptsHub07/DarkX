@@ -27,6 +27,7 @@ Tab:AddTextbox({
 	TextDisappear = true,
 	Callback = function(Value)
 		_G.Key = Value
+        CheckKey()
 	end	  
 })
 
@@ -37,21 +38,22 @@ Tab:AddButton({
   	end    
 })
 
+local key = game:HttpGet("https://gateway.platoboost.com/a/83268?id=" .. _G.Key ..)
+    if key == 'False' then
+        OrionLib:MakeNotification({
+            Name = "Notificação!!",
+            Content = "A Key inserida esta errada!!",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+        return
+    end
+
 Tab:AddButton({
 	Name = "Verificar Key",
 	Callback = function()
-		local key = game:HttpGet("https://gateway.platoboost.com/a/83268?id=" .. _G.Key)
-		if key == 'False' then
-			OrionLib:MakeNotification({
-				Name = "Notificação!!",
-				Content = "A Key inserida está errada!!",
-				Image = "rbxassetid://4483345998",
-				Time = 5
-			})
-			_G.CheckKey = false
-		else
-			_G.CheckKey = true
-			loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/README.md"))()
-		end
-	end    
+      	if _G.CheckKey == true then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/README.md"))()
+        end
+  	end    
 })
