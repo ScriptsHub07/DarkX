@@ -5,6 +5,7 @@ local Main = window:NewTab("Pegar Key")
 local Section = Main:NewSection("Key")
 
 _G.Key = "nothing yet"
+_G.CheckedKey = false
 
 Section:NewButton("Copiar Link", function()
     setclipboard("https://gateway.platoboost.com/a/83268?id=") -- Add your key link
@@ -22,19 +23,19 @@ local KeyInput = Section:NewTextBox("Key", "Key",
         CheckKey()
     end)
 
-_G.CheckKey = false
 local OutputLabel = Section:NewLabel("")  
-function CheckKey()
-    if _G.CheckedKey == true then
+
+_G.CheckKey = function()
+    if _G.CheckedKey then
         return
     end
-    local key = game:HttpGet("")
-    if key == 'False' then
+
+    local key = game:HttpGet("URL_DO_SEU_SERVIDOR_AQUI") -- Insira a URL correta aqui
+    if key == "False" then
         OutputLabel:UpdateLabel("Key Errada")
         return
     end
 
-    if _G.CheckedKey == true then
+    _G.CheckedKey = true
     local script = loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/Script"))()
-    end
 end
