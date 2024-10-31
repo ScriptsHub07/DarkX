@@ -1,45 +1,34 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Sistema de Key", HidePremium = false, SaveConfig = true, ConfigFolder = "KeyTest", IntroText = "Loading..."})
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local window = lib.CreateLib("Sistema de Key", "DarkTheme")
 
-_G.Key = ""
+local Main = window:NewTab("Verificar Key")
+local Section = Main:NewSection("Sistema de Key")
+
+_G.Key = "nothing yet"
+
+Section:NewButton("Copiar Link", function()
+    setclipboard("https://gateway.platoboost.com/a/83268?id=123456") -- Add your key link
+end)
+
+local KeyLabel = Section:NewLabel("Key 1 | ".. _G.Key)
+local KeyInput = Section:NewTextBox("Key", "Key",
+    function(txt)
+        KeyLabel:UpdateLabel("Key > " .. txt)
+        _G.Key = txt
+        CheckKey()
+    end)
+
 _G.CheckKey = false
-
-local Tab = Window:MakeTab({
-	Name = "Pegar Key",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-local Section = Tab:AddSection({
-	Name = "Pegar Key"
-})
-
-Tab:AddTextbox({
-	Name = "Colocar a Key",
-	Default = "Cole a Key",
-	TextDisappear = true,
-	Callback = function(Value)
-		_G.Key = Value
-	end	  
-})
-
-Tab:AddButton({
-	Name = "Pegar Key",
-	Callback = function()
-      	setclipboard("https://gateway.platoboost.com/a/83268?id=123456")
-  	end    
-})
-
-local key = game:HttpGet("https://gateway.platoboost.com/a/83268?id=123456")
-    if key == false then
-        print("Key Errada")
+local OutputLabel = Section:NewLabel("")  
+function CheckKey()
+    if _G.CheckedKey == true then
+        return
+    end
+    local key = game:HttpGet("https://gateway.platoboost.com/a/83268?id=" .. _G.Key .. )
+    if key == 'False' then
+        OutputLabel:UpdateLabel("Key incorrect")
+        return
     end
 
-Tab:AddButton({
-	Name = "Verificar Key",
-	Callback = function()
-	    if key == true then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/Script"))()
-        end
-    end
-})
+    _G.CheckedKey = true
+        local script = loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/Script"))()
