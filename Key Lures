@@ -1,114 +1,59 @@
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Sistema de Key", HidePremium = false, SaveConfig = true, ConfigFolder = "KeyTest", IntroText = "Loading..."})
 
-local Frame = Instance.new("Frame")
-Frame.Size = UDim2.new(0, 400, 0, 300)
-Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
-Frame.AnchorPoint = Vector2.new(0.5, 0.5)
-Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-Frame.BorderSizePixel = 0
-Frame.Active = true
-Frame.Draggable = true
-Frame.Parent = ScreenGui
+OrionLib:MakeNotification({
+	Name = "Notificação!!",
+	Content = "Pegue a Key para Liberar o Script",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
 
-local FrameCorner = Instance.new("UICorner")
-FrameCorner.CornerRadius = UDim.new(0, 10)
-FrameCorner.Parent = Frame
+_G.Key = ""
+_G.CheckKey = false
 
-local Close = Instance.new("TextButton")
-Close.Size = UDim2.new(0, 40, 0, 40)
-Close.Position = UDim2.new(1, -40, 0, 0)
-Close.BackgroundTransparency = 1
-Close.Text = "×"
-Close.TextScaled = true
-Close.TextColor3 = Color3.fromRGB(150, 150, 150)
-Close.Parent = Frame
-Close.MouseButton1Click:Connect(function()
-   ScreenGui:Destroy()
-end)
+local Tab = Window:MakeTab({
+	Name = "Pegar Key",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
-local Title = Instance.new("TextLabel")
-Title.Size = UDim2.new(1, 0, 0, 30)
-Title.Position = UDim2.new(0, 0, 0.05, 0)
-Title.Text = "Sistema de Key|Lures"
-Title.TextSize = 18
-Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-Title.BackgroundTransparency = 1
-Title.Parent = Frame
+local Section = Tab:AddSection({
+	Name = "Pegar Key"
+})
 
-local Instructions = Instance.new("TextLabel")
-Instructions.Size = UDim2.new(1, 0, 0, 30)
-Instructions.Position = UDim2.new(0, 0, 0.2, 0)
-Instructions.Text = "Coloque a Key para ter acesso ao Script"
-Instructions.TextSize = 13
-Instructions.TextColor3 = Color3.fromRGB(150, 150, 150)
-Instructions.BackgroundTransparency = 1
-Instructions.Parent = Frame
+Tab:AddTextbox({
+	Name = "Colocar a Key",
+	Default = "Cole a Key",
+	TextDisappear = true,
+	Callback = function(Value)
+		_G.Key = Value
+        CheckKey()
+	end	  
+})
 
-local TextBox = Instance.new("TextBox")
-TextBox.Size = UDim2.new(0.8, 0, 0.2, 0)
-TextBox.Position = UDim2.new(0.1, 0, 0.4, 0)
-TextBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-TextBox.PlaceholderText = "Colocar Key..."
-TextBox.Text = ""
-TextBox.TextSize = 18
-TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextBox.Parent = Frame
+Tab:AddButton({
+	Name = "Pegar Key",
+	Callback = function()
+      	setclipboard("https://gateway.platoboost.com/a/83268?id=123456")
+  	end    
+})
 
-local TextBoxCorner = Instance.new("UICorner")
-TextBoxCorner.CornerRadius = UDim.new(0, 5)
-TextBoxCorner.Parent = TextBox
-
-local GetKey = Instance.new("TextButton")
-GetKey.Size = UDim2.new(0.35, 0, 0.15, 0)
-GetKey.Position = UDim2.new(0.1, 0, 0.7, 0)
-GetKey.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-GetKey.Text = "Pegar Key"
-GetKey.TextSize = 18
-GetKey.TextColor3 = Color3.fromRGB(150, 150, 150)
-GetKey.Parent = Frame
-
-local GetKeyCorner = Instance.new("UICorner")
-GetKeyCorner.CornerRadius = UDim.new(0, 5)
-GetKeyCorner.Parent = GetKey
-
-local CheckKey = Instance.new("TextButton")
-CheckKey.Size = UDim2.new(0.35, 0, 0.15, 0)
-CheckKey.Position = UDim2.new(0.55, 0, 0.7, 0)
-CheckKey.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-CheckKey.Text = "Verificar Key"
-CheckKey.TextSize = 18
-CheckKey.TextColor3 = Color3.fromRGB(150, 150, 150)
-CheckKey.Parent = Frame
-
-local CheckKeyCorner = Instance.new("UICorner")
-CheckKeyCorner.CornerRadius = UDim.new(0, 5)
-CheckKeyCorner.Parent = CheckKey
-
-GetKey.MouseButton1Click:Connect(function()
-   setclipboard("https://encurtador.com.br/qAbhc")
-end)
-
-local function validateKey(key)
-    return key == "KEY_0ff5a12c5cda451540aa" -- Replace this with your key
-end
-
-CheckKey.MouseButton1Click:Connect(function()
-    local enteredKey = TextBox.Text
-    if validateKey(enteredKey) then
-        TextBox.PlaceholderText = "Key Correta!"
-        TextBox.Text = ""
-        wait(1)
-        ScreenGui:Destroy()
-
--- Put Your Script Here
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/Script"))()
-
-    else
-        TextBox.PlaceholderText = "Key invalida. Tente novamente!"
-        TextBox.Text = ""
-        wait(1)
-        TextBox.PlaceholderText = "Colocar Key..."
-        TextBox.Text = ""
+local key = game:HttpGet("https://gateway.platoboost.com/a/83268?id=" .. _G.Key ..)
+    if key == 'False' then
+        OrionLib:MakeNotification({
+            Name = "Notificação!!",
+            Content = "A Key inserida esta errada!!",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+        return
     end
-end)
+
+Tab:AddButton({
+	Name = "Verificar Key",
+	Callback = function()
+      	if _G.CheckKey = true then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/README.md"))()
+        end
+  	end    
+})
