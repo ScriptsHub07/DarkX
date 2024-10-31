@@ -4,7 +4,7 @@ local window = lib.CreateLib("Sistema de Key", "DarkTheme")
 local Main = window:NewTab("Verificar Key")
 local Section = Main:NewSection("Sistema de Key")
 
-_G.Key = "nothing yet"
+_G.Key = ""
 
 Section:NewButton("Copiar Link", function()
     setclipboard("https://gateway.platoboost.com/a/83268?id=123456") -- Add your key link
