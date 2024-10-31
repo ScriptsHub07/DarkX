@@ -89,9 +89,6 @@ GetKey.MouseButton1Click:Connect(function()
     setclipboard("https://gateway.platoboost.com/a/83268?id=123456")
  end)
  
- local Hwid = game:GetService("RbxAnalyticsService"):GetClientId()
- _G.Hwidplr = Hwid
- 
  local accountId = 83268; -- Plato account id [IMPORTANT]
  local allowPassThrough = false; -- Allow user through if error occurs, may reduce security
  local allowKeyRedeeming = false; -- Automatically check keys to redeem if valid
