@@ -1,15 +1,15 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Sistema de Key", HidePremium = false, SaveConfig = true, ConfigFolder = "KeyTest", IntroText = "Loading..."})
 
+_G.Key = ""
+_G.CheckKey = false
+
 OrionLib:MakeNotification({
 	Name = "Notificação!!",
 	Content = "Pegue a Key para Liberar o Script",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
-
-_G.Key = ""
-_G.CheckKey = false
 
 local Tab = Window:MakeTab({
 	Name = "Pegar Key",
