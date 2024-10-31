@@ -11,7 +11,7 @@ Section:NewButton("Copiar Link", function()
 end)
 
 Section:NewButton("Copiar Chave do Link", function()
-    setclipboard(game:GetService("RbxAnalyticsService"):GetClientId()) -- Add your key link
+    setclipboard(game:GetService("RbxAnalyticsService"):GetClientId())
 end)
 
 local KeyLabel = Section:NewLabel("Key 1 | ".. _G.Key)
@@ -35,7 +35,7 @@ function CheckKey()
     end
 
     _G.CheckedKey = true
-        local script = loadstring(game:HttpGet(('https://raw.githubusercontent.com/InsurgenceHub/ScriptHubTutorial.github.io/main/12996550309.lua')))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/Script"))()
         if script then
             script()
         else
