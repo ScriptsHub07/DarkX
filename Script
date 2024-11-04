@@ -29,7 +29,7 @@ function CheckKey()
     if _G.CheckedKey == true then
         return
     end
-    local key = game:HttpGet("https://api-gateway.platoboost.com/v1/public/whitelist/83268/83268?key=%s")
+    local key = game:HttpGet("https://api-gateway.platoboost.com/v1/public/whitelist/89205/89205?key=%s")
     if key == 'False' then
         OutputLabel:UpdateLabel("Key incorrect")
         return
