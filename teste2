@@ -3026,14 +3026,14 @@ local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Mob", Default = false
         Content = ""
     })
 
-    local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Farm Dough King", Default = false })
+    local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Dough King", Default = false })
 
     Toggle:OnChanged(function(Value)
         _G.AutoDoughtBoss = Value
         StopTween(_G.AutoDoughtBoss)
     end)
 
-    local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Auto Spawn Dough King", Default = false })
+    local Toggle = M.Main:AddToggle("MyToggle", {Title = "Auto Spawn Dough King", Default = false })
 
     Toggle:OnChanged(function(Value)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner",Value)
