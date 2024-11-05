@@ -2691,7 +2691,7 @@ task.spawn(function()
 
         local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Level", Default = false, Flag = "LevelFarm" })
 
-        Toggle:OnChanged(function()
+        Toggle:OnChanged(function(Value)
             _G.AutoFarm = Value
             StopTween(_G.AutoFarm)
         end)
