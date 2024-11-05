@@ -2959,8 +2959,320 @@ end
 
 local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Mob", Default = false })
 
-    Toggle:OnChanged(function()
+    Toggle:OnChanged(function(Value)
         _G.AutoFarmSelectMonster = Value
+    end)
+
+    M.Main:AddParagraph({
+        Title = "Farm Bone",
+        Content = ""
+    })
+
+    M.Main:AddParagraph({
+        Title = "Bone You Have : "..(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Check")),
+        Content = ""
+    })
+    
+    local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Bone", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.Auto_Bone = Value
+        StopTween(_G.Auto_Bone)
+    end)
+
+    local Toggle = M.Main:AddToggle("MyToggle", {Title = "Ramdom Bone", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.Auto_Random_Bone = Value
+    end)
+    spawn(function()
+        pcall(function()
+            while wait(.1) do
+                if _G.Auto_Random_Bone then    
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
+                end
+            end
+        end)
+    end)
+
+    M.Main:AddParagraph({
+        Title = "Elite Progress : "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"),
+        Content = ""
+    })
+
+    local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Elite", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.AutoElitehunter = Value
+        StopTween(_G.AutoElitehunter)
+    end)
+
+    local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Factory", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.AutoFactory = Value
+        StopTween(_G.AutoFactory)
+    end)
+
+    local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Raid Castle", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.RaidPirate = Value
+        StopTween(_G.RaidPirate)
+    end)
+
+    M.Main:AddParagraph({
+        Title = "Dough King",
+        Content = ""
+    })
+
+    local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Farm Dough King", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.AutoDoughtBoss = Value
+        StopTween(_G.AutoDoughtBoss)
+    end)
+
+    local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Auto Spawn Dough King", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner",Value)
+    end)
+
+    M.Main:AddParagraph({
+        Title = "Auto Kaitun",
+        Content = ""
+    })
+
+    local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Abilitar Kaitun", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.RedeemCode = Value
+        _G.AutoFarm = Value
+        _G.SelectWeapon = Value
+        _G.AutoPlayerHunter = Value
+        _G.Auto_Stats_Kaitun = Value
+        _G.Auto_Saber = Value
+        _G.AutoSuperhuman = Value
+        _G.AutoBartilo = Value
+        _G.AutoBuyLegendarySword = Value
+        _G.BuyAllAib = Value
+        StopTween(_G.AutoFarm)
+        StopTween(_G.Hunter)
+        StopTween(_G.Auto_Saber)
+    end)
+
+    local ST = {
+        Main = Window:AddTab({ Title = "Auto Farm", Icon = "" })
+    }
+
+    local Toggle = ST.Main:AddToggle("MyToggle", {Title = "Auto Haki", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.AUTOHAKI = Value
+    end)
+    spawn(function()
+        while wait(.1) do
+            if _G.AUTOHAKI then 
+                if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+                    local args = {
+                        [1] = "Buso"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+            end
+        end
+    end)
+
+    local Toggle = ST.Main:AddToggle("MyToggle", {Title = "Anti AFK", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        local vu = game:GetService("VirtualUser")
+    repeat wait() until game:IsLoaded() 
+    game:GetService("Players").LocalPlayer.Idled:connect(function()
+    game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+        vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+        wait(1)
+        vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+        end)
+    end)
+
+    local Toggle = ST.Main:AddToggle("MyToggle", {Title = "White Screen", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.WhiteScreen = Value
+if _G.WhiteScreen == true then
+    game:GetService("RunService"):Set3dRenderingEnabled(false)
+elseif _G.WhiteScreen == false then
+    game:GetService("RunService"):Set3dRenderingEnabled(true)
+        end
+    end)
+
+    function CheckAntiCheatBypass()
+        for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+            if v:IsA("LocalScript") then
+                if v.Name == "General" or v.Name == "Shiftlock"  or v.Name == "FallDamage" or v.Name == "4444" or v.Name == "CamBob" or v.Name == "JumpCD" or v.Name == "Looking" or v.Name == "Run" then
+                    v:Destroy()
+                end
+            end
+         end
+         for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerScripts:GetDescendants()) do
+            if v:IsA("LocalScript") then
+                if v.Name == "RobloxMotor6DBugFix" or v.Name == "Clans"  or v.Name == "Codes" or v.Name == "CustomForceField" or v.Name == "MenuBloodSp"  or v.Name == "PlayerList" then
+                    v:Destroy()
+                end
+            end
+         end
+        end
+    
+    CheckAntiCheatBypass()
+
+    local Toggle = ST.Main:AddToggle("MyToggle", {Title = "Anti Ban", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.AntiCheat = Value
+        CheckAntiCheatBypass()
+    end)
+
+    local S = {
+        Main = Window:AddTab({ Title = "Status", Icon = "" })
+    }
+
+    S.Main:AddParagraph({
+        Title = "Melee : "..game.Players.localPlayer.Data.Stats.Melee.Level.Value,
+        Content = ""
+    })
+
+    S.Main:AddParagraph({
+        Title = "Defense : "..game.Players.localPlayer.Data.Stats.Defense.Level.Value,
+        Content = ""
+    })
+
+    S.Main:AddParagraph({
+        Title = "Sword : "..game.Players.localPlayer.Data.Stats.Sword.Level.Value,
+        Content = ""
+    })
+
+    S.Main:AddParagraph({
+        Title = "Gun : "..game.Players.localPlayer.Data.Stats.Gun.Level.Value,
+        Content = ""
+    })
+
+    S.Main:AddParagraph({
+        Title = "Fruit : "..game.Players.localPlayer.Data.Stats["Demon Fruit"].Level.Value,
+        Content = ""
+    })
+
+    local Toggle = S.Main:AddToggle("MyToggle", {Title = "Kaitun Status", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.Auto_Stats_Kaitun = Value
+    end)
+
+    local Toggle = S.Main:AddToggle("MyToggle", {Title = "Melee Status", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        melee = Value
+    end)
+
+    local Toggle = S.Main:AddToggle("MyToggle", {Title = "Defence Status", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        defence = Value
+    end)
+
+    local Toggle = S.Main:AddToggle("MyToggle", {Title = "Sword Status", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        sword = Value
+    end)
+
+    local Toggle = S.Main:AddToggle("MyToggle", {Title = "Gun Status", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        gun = Value
+    end)
+
+    local Toggle = S.Main:AddToggle("MyToggle", {Title = "Fruit Status", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        fruit = Value
+    end)
+
+    PointStats = 1
+    local Slider = S.Main:AddSlider("Slider", {
+        Title = "Pontos de Status",
+        Description = "",
+        Default = 1,
+        Min = 1,
+        Max = 2450,
+        Rounding = 1,
+        Callback = function(Value)
+            PointStats = Value
+        end
+    })
+
+    local E = {
+        Main = Window:AddTab({ Title = "ESP", Icon = "" })
+    }
+
+    local Toggle = E.Main:AddToggle("MyToggle", {Title = "ESP Player", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        ESPPlayer = a
+        UpdatePlayerChams()
+    end)
+    function isnil(thing)
+        return (thing == nil)
+    end
+    local function round(n)
+        return math.floor(tonumber(n) + 0.5)
+    end
+    Number = math.random(1, 1000000)
+    function UpdatePlayerChams()
+        for i,v in pairs(game:GetService'Players':GetChildren()) do
+            pcall(function()
+                if not isnil(v.Character) then
+                    if ESPPlayer then
+                        if not isnil(v.Character.Head) and not v.Character.Head:FindFirstChild('NameEsp'..Number) then
+                            local bill = Instance.new('BillboardGui',v.Character.Head)
+                            bill.Name = 'NameEsp'..Number
+                            bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                            bill.Size = UDim2.new(1,200,1,30)
+                            bill.Adornee = v.Character.Head
+                            bill.AlwaysOnTop = true
+                            local name = Instance.new('TextLabel',bill)
+                            name.Font = Enum.Font.GothamSemibold
+                            name.FontSize = "Size14"
+                            name.TextWrapped = true
+                            name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' Distance')
+                            name.Size = UDim2.new(1,0,1,0)
+                            name.TextYAlignment = 'Top'
+                            name.BackgroundTransparency = 1
+                            name.TextStrokeTransparency = 0.5
+                            if v.Team == game.Players.LocalPlayer.Team then
+                                name.TextColor3 = Color3.new(0,255,0)
+                            else
+                                name.TextColor3 = Color3.new(255,0,0)
+                            end
+                        else
+                            v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..' | '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' Distance\nHealth : ' .. round(v.Character.Humanoid.Health*100/v.Character.Humanoid.MaxHealth) .. '%')
+                        end
+                    else
+                        if v.Character.Head:FindFirstChild('NameEsp'..Number) then
+                            v.Character.Head:FindFirstChild('NameEsp'..Number):Destroy()
+                        end
+                    end
+                end
+            end)
+        end
+    end
+
+    local Toggle = E.Main:AddToggle("MyToggle", {Title = "ESP Player", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        ESPPlayer = a
+        UpdatePlayerChams()
     end)
 
     spawn(function()
@@ -3026,6 +3338,165 @@ local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Mob", Default = false
             end
         end
     end)
+
+    local Toggle = E.Main:AddToggle("MyToggle", {Title = "ESP Fruit", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        DevilFruitESP = b
+        while DevilFruitESP do wait()
+        UpdateDevilChams() 
+        end
+    end)
+    function UpdateDevilChams() 
+        for i,v in pairs(game.Workspace:GetChildren()) do
+            pcall(function()
+                if DevilFruitESP then
+                    if string.find(v.Name, "Fruit") then   
+                        if not v.Handle:FindFirstChild('NameEsp'..Number) then
+                            local bill = Instance.new('BillboardGui',v.Handle)
+                            bill.Name = 'NameEsp'..Number
+                            bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                            bill.Size = UDim2.new(1,200,1,30)
+                            bill.Adornee = v.Handle
+                            bill.AlwaysOnTop = true
+                            local name = Instance.new('TextLabel',bill)
+                            name.Font = Enum.Font.GothamSemibold
+                            name.FontSize = "Size14"
+                            name.TextWrapped = true
+                            name.Size = UDim2.new(1,0,1,0)
+                            name.TextYAlignment = 'Top'
+                            name.BackgroundTransparency = 1
+                            name.TextStrokeTransparency = 0.5
+                            name.TextColor3 = Color3.fromRGB(255, 255, 255)
+                            name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
+                        else
+                            v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
+                        end
+                    end
+                else
+                    if v.Handle:FindFirstChild('NameEsp'..Number) then
+                        v.Handle:FindFirstChild('NameEsp'..Number):Destroy()
+                    end
+                end
+            end)
+        end
+    end
+    
+    spawn(function()
+        while wait(2) do
+            if FlowerESP then
+                UpdateFlowerChams() 
+            end
+            if DevilFruitESP then
+                UpdateDevilChams() 
+            end
+            if ChestESP then
+                UpdateChestChams() 
+            end
+            if ESPPlayer then
+                UpdatePlayerChams()
+            end
+            if RealFruitESP then
+                UpdateRealFruitChams()
+            end
+        end
+    end)
+
+    local Toggle = E.Main:AddToggle("MyToggle", {Title = "ESP Island", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        IslandESP = Value
+        while IslandESP do wait()
+        UpdateIslandESP() 
+        end
+    end)
+
+    function UpdateIslandESP() 
+        for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].Locations:GetChildren()) do
+            pcall(function()
+                if IslandESP then 
+                    if v.Name ~= "Sea" then
+                        if not v:FindFirstChild('NameEsp') then
+                            local bill = Instance.new('BillboardGui',v)
+                            bill.Name = 'NameEsp'
+                            bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                            bill.Size = UDim2.new(1,200,1,30)
+                            bill.Adornee = v
+                            bill.AlwaysOnTop = true
+                            local name = Instance.new('TextLabel',bill)
+                            name.Font = "GothamBold"
+                            name.FontSize = "Size14"
+                            name.TextWrapped = true
+                            name.Size = UDim2.new(1,0,1,0)
+                            name.TextYAlignment = 'Top'
+                            name.BackgroundTransparency = 1
+                            name.TextStrokeTransparency = 0.5
+                            name.TextColor3 = Color3.fromRGB(7, 236, 240)
+                        else
+                            v['NameEsp'].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
+                        end
+                    end
+                else
+                    if v:FindFirstChild('NameEsp') then
+                        v:FindFirstChild('NameEsp'):Destroy()
+                    end
+                end
+            end)
+        end
+    end
+
+    local Toggle = E.Main:AddToggle("MyToggle", {Title = "ESP Flower", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        FlowerESP = Value
+        UpdateFlowerChams() 
+    end)
+
+    function UpdateFlowerChams() 
+        for i,v in pairs(game.Workspace:GetChildren()) do
+            pcall(function()
+                if v.Name == "Flower2" or v.Name == "Flower1" then
+                    if FlowerESP then 
+                        if not v:FindFirstChild('NameEsp'..Number) then
+                            local bill = Instance.new('BillboardGui',v)
+                            bill.Name = 'NameEsp'..Number
+                            bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                            bill.Size = UDim2.new(1,200,1,30)
+                            bill.Adornee = v
+                            bill.AlwaysOnTop = true
+                            local name = Instance.new('TextLabel',bill)
+                            name.Font = Enum.Font.GothamSemibold
+                            name.FontSize = "Size14"
+                            name.TextWrapped = true
+                            name.Size = UDim2.new(1,0,1,0)
+                            name.TextYAlignment = 'Top'
+                            name.BackgroundTransparency = 1
+                            name.TextStrokeTransparency = 0.5
+                            name.TextColor3 = Color3.fromRGB(255, 0, 0)
+                            if v.Name == "Flower1" then 
+                                name.Text = ("Blue Flower" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
+                                name.TextColor3 = Color3.fromRGB(0, 0, 255)
+                            end
+                            if v.Name == "Flower2" then
+                                name.Text = ("Red Flower" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
+                                name.TextColor3 = Color3.fromRGB(255, 0, 0)
+                            end
+                        else
+                            v['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
+                        end
+                    else
+                        if v:FindFirstChild('NameEsp'..Number) then
+                        v:FindFirstChild('NameEsp'..Number):Destroy()
+                        end
+                    end
+                end   
+            end)
+        end
+    end
+
+    local LC = {
+        Main = Window:AddTab({ Title = "Teleportar para Ilhas", Icon = "" })
+    }
             
     spawn(function()
         game:GetService("RunService").RenderStepped:Connect(function()
@@ -3045,7 +3516,7 @@ local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Mob", Default = false
     end)
     end)
     end)
-    
+
     spawn(function()
         while wait() do
             if _G.AutoFarmFruitMastery then
