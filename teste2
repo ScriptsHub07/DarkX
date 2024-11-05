@@ -3497,7 +3497,20 @@ elseif _G.WhiteScreen == false then
     local LC = {
         Main = Window:AddTab({ Title = "Teleportar para ilhas", Icon = "" })
     }
-            
+
+    if World1 then
+        local Dropdown = LC.Main:AddDropdown("Dropdown", {
+            Title = "Selecione a Ilha",
+            Values = {"WindMill", "Marine", "Middle Town", "Jungle", "Pirate Village", "Desert", "Snow Island", "MarineFord", "Colosseum", "Sky Island 1", "Sky Island 2", "Sky Island 3", "Prison", "Magma Village", "Under Water Island", "Fountain City", "Shank Room", "Mob Island",},
+            Multi = false,
+            Default = 1,
+        })
+    
+        Dropdown:OnChanged(function(Value)
+            _G.SelectIsland = Value
+        end)
+    end
+
     spawn(function()
         game:GetService("RunService").RenderStepped:Connect(function()
          pcall(function()
