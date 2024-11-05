@@ -2693,7 +2693,7 @@ task.spawn(function()
 
         Toggle:OnChanged(function()
             _G.AutoFarm = Value
-        StopTween(_G.AutoFarm)
+            StopTween(_G.AutoFarm)
         end)
 
         M.Main:AddParagraph({
