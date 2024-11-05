@@ -2684,6 +2684,12 @@ task.spawn(function()
             end
         end})
 
+        local Toggle = M.Main:AddToggle("MyToggle", {Title = "Bypass Tp", Default = false })
+
+        Toggle:OnChanged(function()
+            BypassTP = true
+        end)
+
         M.Main:AddParagraph({
             Title = "Farm Level",
             Content = ""
@@ -2956,4 +2962,3 @@ local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Mob", Default = false
     Toggle:OnChanged(function()
         _G.AutoFarmSelectMonster = Value
     end)
-
