@@ -2957,7 +2957,7 @@ if World2 then
     end)
 end
 
-local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Mob", Default = false })
+    local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Mob", Default = false })
 
     Toggle:OnChanged(function(Value)
         _G.AutoFarmSelectMonster = Value
@@ -2965,11 +2965,6 @@ local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Mob", Default = false
 
     M.Main:AddParagraph({
         Title = "Farm Bone",
-        Content = ""
-    })
-
-    M.Main:AddParagraph({
-        Title = "Bone You Have : "..(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Check")),
         Content = ""
     })
     
