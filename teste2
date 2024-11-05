@@ -3495,7 +3495,7 @@ elseif _G.WhiteScreen == false then
     end
 
     local LC = {
-        Main = Window:AddTab({ Title = "Teleportar para Ilhas", Icon = "" })
+        Main = Window:AddTab({ Title = "Teleportar para ilhas", Icon = "" })
     }
             
     spawn(function()
@@ -8178,3 +8178,9 @@ elseif _G.WhiteScreen == false then
         end
     end)
     
+    Fluent:Notify({
+        Title = "Notificação",
+        Content = "O Script Lures Hub foi Carregado",
+        SubContent = "", -- Optional
+        Duration = 5 -- Set to nil to make the notification not disappear
+    })
