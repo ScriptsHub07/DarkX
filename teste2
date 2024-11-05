@@ -3044,7 +3044,7 @@ local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Mob", Default = false
         Content = ""
     })
 
-    local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Abilitar Kaitun", Default = false })
+    local Toggle = M.Main:AddToggle("MyToggle", {Title = "Abilitar Kaitun", Default = false })
 
     Toggle:OnChanged(function(Value)
         _G.RedeemCode = Value
