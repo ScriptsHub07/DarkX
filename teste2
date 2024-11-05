@@ -3590,6 +3590,45 @@ elseif _G.WhiteScreen == false then
         StopTween(_G.TeleportIsland)
     end)
 
+    LC.Main:AddButton({
+        Title = "Remover Frog",
+        Description = "",
+        Callback = function()
+            game:GetService("Lighting").LightingLayers:Destroy()
+            game:GetService("Lighting").Sky:Destroy()
+        end
+    })
+
+    local Wld = {
+        Main = Window:AddTab({ Title = "Teleportar para os Seas", Icon = "" })
+    }
+
+    Wld.Main:AddButton({
+        Title = "Mundo 1",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
+        end
+    })
+
+    Wld.Main:AddButton({
+        Title = "Mundo 2",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
+        end
+    })
+
+    Wld.Main:AddButton({
+        Title = "Mundo 3",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
+        end
+    })
+
+    
+
     spawn(function()
         game:GetService("RunService").RenderStepped:Connect(function()
          pcall(function()
