@@ -2689,7 +2689,7 @@ task.spawn(function()
             Content = ""
         })
 
-        local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Level", Default = false })
+        local Toggle = M.Main:AddToggle("MyToggle", {Title = "Farm Level", Default = false, Flag = "LevelFarm" })
 
         Toggle:OnChanged(function()
             _G.AutoFarm = Value
