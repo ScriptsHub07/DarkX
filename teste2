@@ -2560,49 +2560,6 @@ spawn(function()
     end
 end)
 
-local Toggle = Tabs.Settings:AddToggle("MyToggle", {Title = "Melee Status", Default = false })
-
-Toggle:OnChanged(function(Value)
-    melee = Value
-end)
-
-local Toggle = Tabs.Settings:AddToggle("MyToggle", {Title = "Defence Status", Default = false })
-
-Toggle:OnChanged(function(Value)
-    defence = Value
-end)
-
-local Toggle = Tabs.Settings:AddToggle("MyToggle", {Title = "Sword Status", Default = false })
-
-Toggle:OnChanged(function(Value)
-    sword = Value
-end)
-
-local Toggle = Tabs.Settings:AddToggle("MyToggle", {Title = "Gun Status", Default = false })
-
-Toggle:OnChanged(function(Value)
-    gun = Value
-end)
-
-local Toggle = Tabs.Settings:AddToggle("MyToggle", {Title = "Fruit Status", Default = false })
-
-Toggle:OnChanged(function(Value)
-    fruit = Value
-end)
-
-    PointStats = 1
-    local Slider = Tabs.Settings:AddSlider("Slider", {
-        Title = "Pontos de Status",
-        Description = "",
-        Default = 1,
-        Min = 1,
-        Max = 2450,
-        Rounding = 1,
-        Callback = function(Value)
-            PointStats = Value
-        end
-    })
-
     local Toggle = Tabs.Settings:AddToggle("MyToggle", {Title = "Bypass Teleport", Default = true })
 
     Toggle:OnChanged(function(Value)
@@ -7772,12 +7729,12 @@ function FastAttackConnectorFunction()
                 pcall(function()
                     if conchosetting and type(conchosetting) == "table" then 
                         if conchosetting and conchosetting["Mastery Farm"] then 
-                            ToiCanOxi = 2 
+                            ToiCanOxi = 8 
                             atack()
                             if conchosetting["DelayAttack"] and type(conchosetting["DelayAttack"]) == "number" and conchosetting["DelayAttack"] >= 0.1 then 
                                 wait(conchosetting["DelayAttack"])
                             else
-                                conchosetting["DelayAttack"] = 0.2 
+                                conchosetting["DelayAttack"] = 0.8 
                                 wait(conchosetting["DelayAttack"])
                             end
                         elseif CountAttack < FastAttackSettings["CDAAT"] then 
@@ -7787,10 +7744,10 @@ function FastAttackConnectorFunction()
                             ToiCanOxi = ToiCanOxi +1
                             atack()
                             if conchosetting["DelayAttack"] and type(conchosetting["DelayAttack"]) == "number" and conchosetting["DelayAttack"] >= 0.1 then 
-                                wait(conchosetting["DelayAttack"]*2)
+                                wait(conchosetting["DelayAttack"]*8)
                             else
-                                conchosetting["DelayAttack"] = 0.2 
-                                wait(conchosetting["DelayAttack"]*2)
+                                conchosetting["DelayAttack"] = 0.8 
+                                wait(conchosetting["DelayAttack"]*8)
                             end
                         end
                     end
