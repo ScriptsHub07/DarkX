@@ -8,11 +8,7 @@ _G.Hwid = game:GetService("RbxAnalyticsService"):GetClientId()
 _G.Key = "nothing yet"
 
 Section:NewButton("Copiar link", "Paste link in browser", function()
-    setclipboard("https://gateway.platoboost.com/a/89205?id=") -- Add your key link
-end)
-
-Section:NewButton("Copiar chave do link", "Paste link in browser", function()
-    setclipboard(game:GetService("RbxAnalyticsService"):GetClientId()) -- Add your key link
+    setclipboard("https://gateway.platoboost.com/a/89205?id="..game:GetService("RbxAnalyticsService"):GetClientId())) -- Add your key link
 end)
 
 local KeyLabel = Section:NewLabel("Key 1 | ".. _G.Key)
