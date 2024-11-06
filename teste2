@@ -3744,7 +3744,7 @@ elseif _G.WhiteScreen == false then
         Main = Window:AddTab({ Title = "Race V4", Icon = "" })
     }
 
-    AutoPullLever = local Toggle = R.Main:AddToggle("MyToggle", {Title = "Auto Pull Level", Default = false })
+    local Toggle = R.Main:AddToggle("MyToggle", {Title = "Auto Pull Level", Default = false })
 
     Toggle:OnChanged(function(Value)
         _G.AutoPullLever = Value
@@ -3785,7 +3785,7 @@ elseif _G.WhiteScreen == false then
         end
     end)
 
-    MoveCamTooMoonToggle = local Toggle = R.Main:AddToggle("MyToggle", {Title = "Olhar para a lua", Default = false })
+    local Toggle = R.Main:AddToggle("MyToggle", {Title = "Olhar para a lua", Default = false })
 
     Toggle:OnChanged(function(Value)
         _G.AutoDooHee = Value
