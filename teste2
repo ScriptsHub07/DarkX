@@ -3184,18 +3184,10 @@ elseif _G.WhiteScreen == false then
         Content = ""
     })
 
-
-    spawn(function()
-        while wait() do
-            pcall(function()
-                S.Main:AddParagraph({
-                    Title = "Fruit : "..game.Players.localPlayer.Data.Stats["Demon Fruit"].Level.Value,
-                    Content = ""
-                })
-            end)
-        end
-    end)
-    
+    S.Main:AddParagraph({
+        Title = "Fruit : "..game.Players.localPlayer.Data.Stats["Demon Fruit"].Level.Value,
+        Content = ""
+    })
 
     local Toggle = S.Main:AddToggle("MyToggle", {Title = "Kaitun Status", Default = false })
 
