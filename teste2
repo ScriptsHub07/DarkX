@@ -21,6 +21,7 @@ Close.BorderSizePixel = 0
 Close.Position = UDim2.new(0.920085132, 0, 0.190653279, 0)
 Close.Size = UDim2.new(0, 50, 0, 50)
 Close.Image = "rbxassetid://115291470270199"
+Close.Draggable = true
 Close.MouseButton1Down:Connect(function()
 	game:GetService("VirtualInputManager"):SendKeyEvent(true, "LeftControl" , false , game)
 end)
@@ -3183,10 +3184,18 @@ elseif _G.WhiteScreen == false then
         Content = ""
     })
 
-    S.Main:AddParagraph({
-        Title = "Fruit : "..game.Players.localPlayer.Data.Stats["Demon Fruit"].Level.Value,
-        Content = ""
-    })
+
+    spawn(function()
+        while wait() do
+            pcall(function()
+                S.Main:AddParagraph({
+                    Title = "Fruit : "..game.Players.localPlayer.Data.Stats["Demon Fruit"].Level.Value,
+                    Content = ""
+                })
+            end)
+        end
+    end)
+    
 
     local Toggle = S.Main:AddToggle("MyToggle", {Title = "Kaitun Status", Default = false })
 
@@ -3240,6 +3249,26 @@ elseif _G.WhiteScreen == false then
     local E = {
         Main = Window:AddTab({ Title = "ESP", Icon = "" })
     }
+
+    spawn(function()
+        while wait(2) do
+            if FlowerESP then
+                UpdateFlowerChams() 
+            end
+            if DevilFruitESP then
+                UpdateDevilChams() 
+            end
+            if ChestESP then
+                UpdateChestChams() 
+            end
+            if ESPPlayer then
+                UpdatePlayerChams()
+            end
+            if RealFruitESP then
+                UpdateRealFruitChams()
+            end
+        end
+    end)
 
     local Toggle = E.Main:AddToggle("MyToggle", {Title = "ESP Player", Default = false })
 
@@ -3354,26 +3383,6 @@ elseif _G.WhiteScreen == false then
         end
     end
     
-    spawn(function()
-        while wait(2) do
-            if FlowerESP then
-                UpdateFlowerChams() 
-            end
-            if DevilFruitESP then
-                UpdateDevilChams() 
-            end
-            if ChestESP then
-                UpdateChestChams() 
-            end
-            if ESPPlayer then
-                UpdatePlayerChams()
-            end
-            if RealFruitESP then
-                UpdateRealFruitChams()
-            end
-        end
-    end)
-
     local Toggle = E.Main:AddToggle("MyToggle", {Title = "ESP Island", Default = false })
 
     Toggle:OnChanged(function(Value)
