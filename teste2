@@ -3242,29 +3242,9 @@ elseif _G.WhiteScreen == false then
         Main = Window:AddTab({ Title = "ESP", Icon = "" })
     }
 
-    spawn(function()
-        while wait(2) do
-            if FlowerESP then
-                UpdateFlowerChams() 
-            end
-            if DevilFruitESP then
-                UpdateDevilChams() 
-            end
-            if ChestESP then
-                UpdateChestChams() 
-            end
-            if ESPPlayer then
-                UpdatePlayerChams()
-            end
-            if RealFruitESP then
-                UpdateRealFruitChams()
-            end
-        end
-    end)
-
     local Toggle = E.Main:AddToggle("MyToggle", {Title = "ESP Player", Default = false })
 
-    Toggle:OnChanged(function(Value)
+    Toggle:OnChanged(function(a)
         ESPPlayer = a
         UpdatePlayerChams()
     end)
@@ -3334,7 +3314,7 @@ elseif _G.WhiteScreen == false then
 
     local Toggle = E.Main:AddToggle("MyToggle", {Title = "ESP Fruit", Default = false })
 
-    Toggle:OnChanged(function(Value)
+    Toggle:OnChanged(function(b)
         DevilFruitESP = b
         while DevilFruitESP do wait()
         UpdateDevilChams() 
