@@ -2286,7 +2286,7 @@ game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
         end
     })
     
-    Tabs.Sh:AddSection("Các Loại Võ")
+    Tabs.Sh:AddSection("Estilos de Luta")
     
     Tabs.Sh:AddButton({
         Title = "Comprar Sanguine Art",
@@ -4866,7 +4866,7 @@ end)
         _G.SelectFruit = Value
     end)
     
-    local Toggle = Tabs.De:AddToggle("MyToggle", {Title = "Mua Fruit Đã Chọn", Default = false })
+    local Toggle = Tabs.De:AddToggle("MyToggle", {Title = "Comprar Fruta da Loja", Default = false })
 
     Toggle:OnChanged(function(Value)
         _G.AutoBuyFruitSniper = Value
@@ -4900,7 +4900,7 @@ end)
 	    end
     end)
     
-    local Toggle = Tabs.De:AddToggle("MyToggle", {Title = "Tele Đến Trái [Tween]", Default = false })
+    local Toggle = Tabs.De:AddToggle("MyToggle", {Title = "Pegar fruta Spawnada [Tween]", Default = false })
 
     Toggle:OnChanged(function(Value)
         Tween_Fruit = Value
