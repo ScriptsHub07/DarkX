@@ -2513,6 +2513,8 @@ task.spawn(function()
 	end
     end)
     
+    local AttackList = {"0.5", "0.55", "0.6", "0.65", "0.7", "0.75", "0.8", "0.85", "0.9", "0.95", "1"}
+
     local Dropdown = Tabs.Settings:AddDropdown("Dropdown", {
         Title = "Fast Attack Speed",
         Values = {"0.5", "0.55", "0.6", "0.65", "0.7", "0.75", "0.8", "0.85", "0.9", "0.95", "1"},
@@ -2520,7 +2522,7 @@ task.spawn(function()
         Default = 1,
     })
 
-    Dropdown:SetValue("0.15")
+    Dropdown:SetValue("0.8")
 
     Dropdown:OnChanged(function(Value)
         _G.FastAttackDelay = Value
@@ -2557,6 +2559,49 @@ spawn(function()
         end
     end
 end)
+
+local Toggle = Tabs.Settings:AddToggle("MyToggle", {Title = "Melee Status", Default = false })
+
+Toggle:OnChanged(function(Value)
+    melee = Value
+end)
+
+local Toggle = Tabs.Settings:AddToggle("MyToggle", {Title = "Defence Status", Default = false })
+
+Toggle:OnChanged(function(Value)
+    defence = Value
+end)
+
+local Toggle = Tabs.Settings:AddToggle("MyToggle", {Title = "Sword Status", Default = false })
+
+Toggle:OnChanged(function(Value)
+    sword = Value
+end)
+
+local Toggle = Tabs.Settings:AddToggle("MyToggle", {Title = "Gun Status", Default = false })
+
+Toggle:OnChanged(function(Value)
+    gun = Value
+end)
+
+local Toggle = Tabs.Settings:AddToggle("MyToggle", {Title = "Fruit Status", Default = false })
+
+Toggle:OnChanged(function(Value)
+    fruit = Value
+end)
+
+    PointStats = 1
+    local Slider = Tabs.Settings:AddSlider("Slider", {
+        Title = "Pontos de Status",
+        Description = "",
+        Default = 1,
+        Min = 1,
+        Max = 2450,
+        Rounding = 1,
+        Callback = function(Value)
+            PointStats = Value
+        end
+    })
 
     local Toggle = Tabs.Settings:AddToggle("MyToggle", {Title = "Bypass Teleport", Default = true })
 
