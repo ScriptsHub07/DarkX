@@ -3858,7 +3858,7 @@ elseif _G.WhiteScreen == false then
     R.Main:AddButton({
         Title = "Teleportar para Templo",
         Description = "",
-        Callback = function(Value)
+        Callback = function()
             Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
         end
     })
@@ -3866,7 +3866,7 @@ elseif _G.WhiteScreen == false then
     R.Main:AddButton({
         Title = "Teleportar para Porta da trial",
         Description = "",
-        Callback = function(Value)
+        Callback = function()
             Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
   wait(.1)
   Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
