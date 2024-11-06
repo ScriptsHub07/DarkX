@@ -7729,12 +7729,12 @@ function FastAttackConnectorFunction()
                 pcall(function()
                     if conchosetting and type(conchosetting) == "table" then 
                         if conchosetting and conchosetting["Mastery Farm"] then 
-                            ToiCanOxi = 8 
+                            ToiCanOxi = 1 
                             atack()
                             if conchosetting["DelayAttack"] and type(conchosetting["DelayAttack"]) == "number" and conchosetting["DelayAttack"] >= 0.1 then 
                                 wait(conchosetting["DelayAttack"])
                             else
-                                conchosetting["DelayAttack"] = 0.8 
+                                conchosetting["DelayAttack"] = 1 
                                 wait(conchosetting["DelayAttack"])
                             end
                         elseif CountAttack < FastAttackSettings["CDAAT"] then 
@@ -7744,10 +7744,10 @@ function FastAttackConnectorFunction()
                             ToiCanOxi = ToiCanOxi +1
                             atack()
                             if conchosetting["DelayAttack"] and type(conchosetting["DelayAttack"]) == "number" and conchosetting["DelayAttack"] >= 0.1 then 
-                                wait(conchosetting["DelayAttack"]*8)
+                                wait(conchosetting["DelayAttack"]*1)
                             else
-                                conchosetting["DelayAttack"] = 0.8 
-                                wait(conchosetting["DelayAttack"]*8)
+                                conchosetting["DelayAttack"] = 1 
+                                wait(conchosetting["DelayAttack"]*1)
                             end
                         end
                     end
@@ -7759,7 +7759,7 @@ function FastAttackConnectorFunction()
         while task.wait() do 
             pcall(function() 
                 if tick()-TickCountAttack >= FastAttackSettings["TimeWait"] then 
-                    CountAttack = 0 
+                    CountAttack = 0.1 
                 end
             end)
         end
@@ -7809,7 +7809,7 @@ function FastAttackConnectorFunction()
                     if CountAttack >= FastAttackSettings["CDAAT"] then 
                         TickFastAttackF = tick()
                         repeat wait() until tick()-TickFastAttackF >= FastAttackSettings["TimeWait"]
-                        CountAttack = 0
+                        CountAttack = 0.1
                     end    
                 end)  
             end
