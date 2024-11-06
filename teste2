@@ -1,3 +1,33 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Close = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Close.Name = "Close"
+Close.Parent = ScreenGui
+Close.AnchorPoint = Vector2.new(0.5, 0.5)
+Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Close.BorderSizePixel = 0
+Close.Position = UDim2.new(0.920085132, 0, 0.190653279, 0)
+Close.Size = UDim2.new(0, 50, 0, 50)
+Close.Image = "rbxassetid://115291470270199"
+Close.MouseButton1Down:Connect(function()
+	game:GetService("VirtualInputManager"):SendKeyEvent(true, "LeftControl" , false , game)
+end)
+
+UICorner.CornerRadius = UDim.new(1, 0)
+UICorner.Parent = Close
+
 if game.PlaceId == 2753915549 then
     World1 = true
 elseif game.PlaceId == 4442272183 then
@@ -8612,3 +8642,5 @@ elseif _G.WhiteScreen == false then
             end
         end
     end)
+
+    SaveManager:LoadAutoloadConfig()
