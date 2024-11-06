@@ -3933,13 +3933,6 @@ elseif _G.WhiteScreen == false then
         end
     })
 
-    Fluent:Notify({
-        Title = "Notificação",
-        Content = "O Script Lures Hub foi Carregado",
-        SubContent = "", -- Optional
-        Duration = 5 -- Set to nil to make the notification not disappear
-    })
-
     spawn(function()
         game:GetService("RunService").RenderStepped:Connect(function()
          pcall(function()
