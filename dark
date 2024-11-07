@@ -7759,7 +7759,7 @@ function FastAttackConnectorFunction()
         while task.wait() do 
             pcall(function() 
                 if tick()-TickCountAttack >= FastAttackSettings["TimeWait"] then 
-                    CountAttack = 0.1 
+                    CountAttack = 0.8 
                 end
             end)
         end
@@ -7809,7 +7809,7 @@ function FastAttackConnectorFunction()
                     if CountAttack >= FastAttackSettings["CDAAT"] then 
                         TickFastAttackF = tick()
                         repeat wait() until tick()-TickFastAttackF >= FastAttackSettings["TimeWait"]
-                        CountAttack = 0.1
+                        CountAttack = 0.8
                     end    
                 end)  
             end
