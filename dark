@@ -7719,7 +7719,7 @@ function FastAttackConnectorFunction()
     function ReturnFunctions:GetMethod()
         MethodAttack = "Slow"
         if CountAttack < FastAttackSettings["CDAAT"] then 
-            MethodAttack = "Fast"
+            MethodAttack = "Slow"
         end 
         return MethodAttack
     end
