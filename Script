@@ -90,6 +90,7 @@ _G.Key = ""
 
 GetKey.MouseButton1Click:Connect(function()
     setclipboard("https://gateway.platoboost.com/a/89205?id=".._G.Hwid)
+    TextBox.PlaceholderText = "Link Copiado"
 end)
 
 CheckKey.MouseButton1Click:Connect(function()
@@ -98,5 +99,7 @@ CheckKey.MouseButton1Click:Connect(function()
     else
         loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/dark"))()
         TextBox.PlaceholderText = "Key Correta"
+        TextBox.Text = "Key Correta"
+        ScreenGui:Destroy()
     end
 end)
