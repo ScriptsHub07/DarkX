@@ -1,37 +1,102 @@
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/Librarykavoui"))()
-local window = lib.CreateLib("Key | Lures Script", "DarkTheme")
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
-local Main = window:NewTab("Pegar Key")
-local Section = Main:NewSection("Key System")
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0, 400, 0, 300)
+Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+Frame.BorderSizePixel = 0
+Frame.Active = true
+Frame.Draggable = true
+Frame.Parent = ScreenGui
 
-_G.Hwid = game:GetService("RbxAnalyticsService"):GetClientId()
-_G.Key = "nothing yet"
+local FrameCorner = Instance.new("UICorner")
+FrameCorner.CornerRadius = UDim.new(0, 10)
+FrameCorner.Parent = Frame
 
-Section:NewButton("Copiar link", "Paste link in browser", function()
-    setclipboard("https://gateway.platoboost.com/a/89205?id=".._G.Hwid) -- Add your key link
+local Close = Instance.new("TextButton")
+Close.Size = UDim2.new(0, 40, 0, 40)
+Close.Position = UDim2.new(1, -40, 0, 0)
+Close.BackgroundTransparency = 1
+Close.Text = "×"
+Close.TextScaled = true
+Close.TextColor3 = Color3.fromRGB(150, 150, 150)
+Close.Parent = Frame
+Close.MouseButton1Click:Connect(function()
+   ScreenGui:Destroy()
 end)
 
-local KeyLabel = Section:NewLabel("Key 1 | ".. _G.Key)
-local KeyInput = Section:NewTextBox("Key", "Key",
-    function(txt)
-        KeyLabel:UpdateLabel("Key > " .. txt)
-        _G.Key = txt
-        CheckKey()
-    end)
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, 0, 0, 30)
+Title.Position = UDim2.new(0, 0, 0.05, 0)
+Title.Text = "Sistema de Key"
+Title.TextSize = 18
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1
+Title.Parent = Frame
 
-_G.CheckKey = false
-local OutputLabel = Section:NewLabel("")  
-function CheckKey()
-    if _G.CheckedKey == true then
-        return
+local Instructions = Instance.new("TextLabel")
+Instructions.Size = UDim2.new(1, 0, 0, 30)
+Instructions.Position = UDim2.new(0, 0, 0.2, 0)
+Instructions.Text = "Coloque a Key para liberar o script"
+Instructions.TextSize = 13
+Instructions.TextColor3 = Color3.fromRGB(150, 150, 150)
+Instructions.BackgroundTransparency = 1
+Instructions.Parent = Frame
+
+local TextBox = Instance.new("TextBox")
+TextBox.Size = UDim2.new(0.8, 0, 0.2, 0)
+TextBox.Position = UDim2.new(0.1, 0, 0.4, 0)
+TextBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+TextBox.PlaceholderText = "Cole a Key..."
+TextBox.Text = ""
+TextBox.TextSize = 18
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.Parent = Frame
+
+local TextBoxCorner = Instance.new("UICorner")
+TextBoxCorner.CornerRadius = UDim.new(0, 5)
+TextBoxCorner.Parent = TextBox
+
+local GetKey = Instance.new("TextButton")
+GetKey.Size = UDim2.new(0.35, 0, 0.15, 0)
+GetKey.Position = UDim2.new(0.1, 0, 0.7, 0)
+GetKey.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+GetKey.Text = "Pegar Key"
+GetKey.TextSize = 18
+GetKey.TextColor3 = Color3.fromRGB(150, 150, 150)
+GetKey.Parent = Frame
+
+local GetKeyCorner = Instance.new("UICorner")
+GetKeyCorner.CornerRadius = UDim.new(0, 5)
+GetKeyCorner.Parent = GetKey
+
+local CheckKey = Instance.new("TextButton")
+CheckKey.Size = UDim2.new(0.35, 0, 0.15, 0)
+CheckKey.Position = UDim2.new(0.55, 0, 0.7, 0)
+CheckKey.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+CheckKey.Text = "Verificar"
+CheckKey.TextSize = 18
+CheckKey.TextColor3 = Color3.fromRGB(150, 150, 150)
+CheckKey.Parent = Frame
+
+local CheckKeyCorner = Instance.new("UICorner")
+CheckKeyCorner.CornerRadius = UDim.new(0, 5)
+CheckKeyCorner.Parent = CheckKey
+
+_G.Hwid = game:GetService("RbxAnalyticsService"):GetClientId()
+_G.Key = ""
+
+GetKey.MouseButton1Click:Connect(function()
+    setclipboard("https://gateway.platoboost.com/a/89205?id=".._G.Hwid)
+end)
+
+CheckKey.MouseButton1Click:Connect(function()
+    if TextBox.Text == _G.Key then
+        TextBox.PlaceholderText = "Key Errada"
+    else
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/dark"))()
+        TextBox.PlaceholderText = "Key Correta"
     end
-    local key = game:HttpGet("https://api-gateway.platoboost.com/v1/public/whitelist/89205/89205?key=%s")
-    if key == 'False' then
-        OutputLabel:UpdateLabel("Key incorrect")
-        return
-    end
-
-
-    _G.CheckedKey = true
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/dark"))()
-end
+end)
