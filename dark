@@ -2669,11 +2669,11 @@ spawn(function()
         if _G.BringMode then
             pcall(function()
                 if _G.BringMode == "Low" then
-                    _G.BringMode = 300
+                    _G.BringMode = 250
                 elseif _G.BringMode == "Normal" then
-                    _G.BringMode = 350
+                    _G.BringMode = 300
                 elseif _G.BringMode == "Super Bring" then
-                    _G.BringMode = 400
+                    _G.BringMode = 350
                 end
             end)
         end
@@ -3695,6 +3695,8 @@ end)
     Toggle:OnChanged(function(Value)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 		_G.Auto_Bone = Value
+		_G.BringMode = Value
+        _G.BringMonster = Mag
 		StopTween(_G.Auto_Bone)
 		end)
 		
@@ -3737,7 +3739,7 @@ end)
                             end
                         end
                     else
-                        StartMagnetBoneMon = true
+                        StartMagnetBoneMon = false
     					topos(CFrame.new(-9506.234375, 172.130615234375, 6117.0771484375))
                         for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do 
                             if v.Name == "Reborn Skeleton" then
