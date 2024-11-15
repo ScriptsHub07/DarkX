@@ -3696,6 +3696,7 @@ end)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 		_G.Auto_Bone = Value
 		_G.BringMode = Value
+        _G.BringMonster = Value
 		StopTween(_G.Auto_Bone)
 		end)
 		
