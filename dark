@@ -2904,7 +2904,7 @@ end)
                                     end
                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
                                 end
-                            elseif _G.Auto_Bone and StartMagnet and v.Name == Mon and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
+                            elseif _G.Auto_Bone and StartMagnet and v.Name == Mon and (Mon == "Living Zombie" or Mon == "Reborn Skeleton" or Mon == "Posessed Mummy" or Mon == "Demonic Soul") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 250 then
                                 v.HumanoidRootPart.Size = Vector3.new(150,150,150)
                                 v.HumanoidRootPart.CFrame = PosMon
                                 v.Humanoid:ChangeState(14)
@@ -2913,8 +2913,6 @@ end)
                                 if v.Humanoid:FindFirstChild("Animator") then
                                     v.Humanoid.Animator:Destroy()
                                 end
-                                sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-                            end
                             elseif v.Name == Mon then
                                 if (v.HumanoidRootPart.Position - PosMonMasteryFruit.Position).Magnitude <= _G.BringMode and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -3706,8 +3704,6 @@ end)
     Toggle:OnChanged(function(Value)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 		_G.Auto_Bone = Value
-		_G.BringMode = Value
-        _G.BringMonster = Mag
 		StopTween(_G.Auto_Bone)
 		end)
 		
