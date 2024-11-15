@@ -3695,6 +3695,7 @@ end)
     Toggle:OnChanged(function(Value)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 		_G.Auto_Bone = Value
+		_G.BringMode = Value
 		StopTween(_G.Auto_Bone)
 		end)
 		
