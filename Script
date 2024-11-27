@@ -94,3 +94,6 @@ end)
 CheckKey.MouseButton1Click:Connect(function()
     if TextBox.Text == _G.Key then
         TextBox.PlaceholderText = "Key Errada"
+    else
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/LuresScript/Lures/refs/heads/main/dark"))()
+    end
