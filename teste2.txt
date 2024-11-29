@@ -7624,7 +7624,7 @@ end
     local Input = Tabs.Webhook:AddInput("InputWebhook", {
         Title = "Webhook Url",
         Default = "",
-        Placeholder = "URL",
+        Placeholder = "Placeholder",
         Numeric = false,
         Finished = false,
         Callback = function(Value)
