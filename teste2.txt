@@ -7621,7 +7621,7 @@ local WebhookLog = false
 end
 
     local section = Tabs.Webhook:AddSection("Webhook Stats Messages")
-    local InputWebhook = Tabs.Webhook:AddInput("InputWebhook", {
+    local Input = Tabs.Webhook:AddInput("InputWebhook", {
         Title = "Webhook Url",
         Default = "",
         Placeholder = "URL",
@@ -7631,10 +7631,10 @@ end
             WebhookUrl = Value
         end
     })
-    InputWebhook:OnChanged(function()
-        print("Url Changed:", InputWebhook.Value)
+    Input:OnChanged(function()
+        print("Url Changed:", Input.Value)
     end)
-    local SliderWebhook = Tabs.Webhook:AddSlider("SliderWebhook", {
+    local Slider = Tabs.Webhook:AddSlider("SliderWebhook", {
         Title = "Quantos segundos para enviar?",
         Description = "Preferencia de 90 segundos",
         Default = 90,
@@ -7645,13 +7645,13 @@ end
             WebhookDelay = Value
         end
     })
-    SliderWebhook:OnChanged(function(Value)
+    Slider:OnChanged(function(Value)
         print("Delay changed:", Value)
     end)
 
-    local ToggleWebhook = Tabs.Webhook:AddToggle("ToggleWebhook", {Title = "Webhook On/Off", Default = false })
-    ToggleWebhook:OnChanged(function()
-        WebhookLog = ToggleWebhook.Value
+    local Toggle = Tabs.Webhook:AddToggle("ToggleWebhook", {Title = "Webhook On/Off", Default = false })
+    Toggle:OnChanged(function(Value)
+        WebhookLog = Value
         WebhookManager()
     end)
 end
