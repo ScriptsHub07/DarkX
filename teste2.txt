@@ -7570,6 +7570,8 @@ spawn(function()
     end)
     end)
 
+local WebhookLog = false
+
     function WebhookManager()
     spawn(function()
         while WebhookLog do
