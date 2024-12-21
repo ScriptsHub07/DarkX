@@ -1725,7 +1725,6 @@ spawn(function()
     end
 end)
 
-Fast Attack
 local CombatFramework = require(game:GetService('Players').LocalPlayer.PlayerScripts.CombatFramework)
 
 function GetCurrentBlade()
