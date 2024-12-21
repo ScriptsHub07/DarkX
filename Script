@@ -1725,6 +1725,7 @@ spawn(function()
     end
 end)
 
+Fast Attack
 local CombatFramework = require(game:GetService('Players').LocalPlayer.PlayerScripts.CombatFramework)
 
 function GetCurrentBlade()
@@ -1788,7 +1789,7 @@ Main_Setting:addToggle('Fast Attack 1 (Selected Delay)', FastAttack, function(Va
 end)]]
 
 
---[[spawn(function()
+spawn(function()
     while task.wait() do
         if FastAttack then
             local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
@@ -1801,7 +1802,7 @@ end)]]
             end)
         end
     end
-end)]]
+end)
 
 --[[Main_Setting:addToggle('Fast Attack 2 (Without Selected Delay)', MobileFastAttack, function(Value)
     MobileFastAttack = Value
