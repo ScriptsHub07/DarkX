@@ -1783,13 +1783,13 @@ function AttackNoCD()
     end
 end]]
 
---[[local FastAttack = true
+local FastAttack = true
 Main_Setting:addToggle('Fast Attack 1 (Selected Delay)', FastAttack, function(Value)
     FastAttack = Value
-end)]]
+end)
 
 
---[[spawn(function()
+spawn(function()
     while task.wait() do
         if FastAttack then
             local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
@@ -1802,7 +1802,7 @@ end)]]
             end)
         end
     end
-end)]]
+end)
 
 --[[Main_Setting:addToggle('Fast Attack 2 (Without Selected Delay)', MobileFastAttack, function(Value)
     MobileFastAttack = Value
