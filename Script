@@ -28,7 +28,7 @@ local Tabs = {
 
 local Entkey = Tabs.KeySys:AddInput("Input", {
     Title = "Enter Key",
-    Description = "Enter Key Here",
+    Description = "",
     Default = "",
     Placeholder = "Enter key…",
     Numeric = false,
