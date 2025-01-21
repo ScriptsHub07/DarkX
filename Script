@@ -3,119 +3,61 @@ local trueData = "151f86ddbd964635b285957514c41661"
 local falseData = "c4dd9dedda134332b573f78ab574c05c"
 
 KeyGuardLibrary.Set({
-	publicToken = "c6586900517248bcaa67e1f536cead04",
-	privateToken = "215c48d203274fedb883859712b37a78",
-	trueData = trueData,
-	falseData = falseData,
+  publicToken = "c6586900517248bcaa67e1f536cead04",
+  privateToken = "215c48d203274fedb883859712b37a78",
+  trueData = trueData,
+  falseData = falseData,
 })
 
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local key = ""
 
-local ScreenGui = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local UICorner = Instance.new("UICorner")
-local UIScale = Instance.new("UIScale")
-local TextBox = Instance.new("TextBox")
-local UICorner_2 = Instance.new("UICorner")
-local Check = Instance.new("TextButton")
-local UICorner_3 = Instance.new("UICorner")
-local Get = Instance.new("TextButton")
-local UICorner_4 = Instance.new("UICorner")
-local TextLabel = Instance.new("TextLabel")
+local Window = Fluent:CreateWindow({
+    Title = "Key System",
+    SubTitle = "DARK X",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(405, 282),
+    Acrylic = false,
+    Theme = "Darker",
+    MinimizeKey = Enum.KeyCode.LeftControl
+})
 
---Properties:
+local Tabs = {
+    KeySys = Window:AddTab({ Title = "Key System", Icon = "key" }),
+}
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+local Entkey = Tabs.KeySys:AddInput("Input", {
+    Title = "Enter Key",
+    Description = "Enter Key Here",
+    Default = "",
+    Placeholder = "Enter key…",
+    Numeric = false,
+    Finished = false,
+    Callback = function(Value)
+        key = Value
+    end
+})
 
-Frame.Parent = ScreenGui
-Frame.AnchorPoint = Vector2.new(0.5, 0.5)
-Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
-Frame.Size = UDim2.new(0, 405, 0, 282)
+local Checkkey = Tabs.KeySys:AddButton({
+    Title = "Check Key",
+    Description = "Enter Key before pressing this button",
+    Callback = function()
+        local response = KeyGuardLibrary.validateDefaultKey(key)
+        if response == trueData then
+           print("Key is valid")
+           -- Your code here
+        else
+           print("Key is invalid")
+        end
+    end
+})
 
-UICorner.Parent = Frame
+local Getkey = Tabs.KeySys:AddButton({
+    Title = "Get Key",
+    Description = "Get Key here",
+    Callback = function()
+       setclipboard(KeyGuardLibrary.getLink())
+    end
+})
 
-UIScale.Parent = Frame
-
-TextBox.Parent = Frame
-TextBox.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
-TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextBox.BorderSizePixel = 0
-TextBox.Position = UDim2.new(0.251851857, 0, 0.379432619, 0)
-TextBox.Size = UDim2.new(0, 200, 0, 50)
-TextBox.Font = Enum.Font.JosefinSans
-TextBox.Text = ""
-TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextBox.TextSize = 14.000
-
-UICorner_2.Parent = TextBox
-
-key = TextBox.Text
-
-Check.Name = "Check"
-Check.Parent = Frame
-Check.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
-Check.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Check.BorderSizePixel = 0
-Check.Position = UDim2.new(0.572839499, 0, 0.734042525, 0)
-Check.Size = UDim2.new(0, 155, 0, 50)
-Check.Font = Enum.Font.JosefinSans
-Check.Text = "Check Key"
-Check.TextColor3 = Color3.fromRGB(255, 255, 255)
-Check.TextSize = 14.000
-
-UICorner_3.Parent = Check
-
-Get.Name = "Get"
-Get.Parent = Frame
-Get.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
-Get.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Get.BorderSizePixel = 0
-Get.Position = UDim2.new(0.0691358, 0, 0.734042525, 0)
-Get.Size = UDim2.new(0, 155, 0, 50)
-Get.Font = Enum.Font.JosefinSans
-Get.Text = "Get Key"
-Get.TextColor3 = Color3.fromRGB(255, 255, 255)
-Get.TextSize = 14.000
-
-UICorner_4.Parent = Get
-
-TextLabel.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(0.251851857, 0, 0.0354609936, 0)
-TextLabel.Size = UDim2.new(0, 200, 0, 50)
-TextLabel.Font = Enum.Font.Unknown
-TextLabel.Text = "Key System | Dark X Hub"
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextSize = 14.000
-
--- Scripts:
-
-local function IWTV_fake_script() -- Check.CheckKeyScript 
-	local script = Instance.new('LocalScript', Check)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		local response = KeyGuardLibrary.validateDefaultKey(key)
-		if response == trueData then
-			print("Key is valid")
-			-- Your code here
-		else
-			print("Key is invalid")
-		end
-	end)
-end
-coroutine.wrap(IWTV_fake_script)()
-local function QSYCC_fake_script() -- Get.GetKeyScript 
-	local script = Instance.new('LocalScript', Get)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		setclipboard(KeyGuardLibrary.getLink())
-	end)
-end
-coroutine.wrap(QSYCC_fake_script)()
+Window:SelectTab(1)
